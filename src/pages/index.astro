@@ -1,17 +1,794 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="vidha">
+	<!-- Navigation -->
+	<nav class="nav">
+		<div class="nav-left">
+			<a href="https://github.com/vidha" target="_blank" rel="noopener">github</a>
+			<span class="nav-separator">·</span>
+			<a href="https://x.com/vidha" target="_blank" rel="noopener">x</a>
+			<span class="nav-separator">·</span>
+			<a href="https://linkedin.com/in/vidha" target="_blank" rel="noopener">linkedin</a>
+			<span class="nav-separator">·</span>
+			<a href="mailto:hello@vidha.com">email</a>
+		</div>
+		<div class="nav-right">
+			<a href="#work-with-me">work with me →</a>
+			<span class="nav-separator">·</span>
+			<a href="#say-hi">just say hi →</a>
+		</div>
+	</nav>
+
+	<!-- Birthday Counter -->
+	<div class="birthday-counter">
+		<span id="days-until">20</span> · <span id="days-count">[dynamic]</span> days until 21
+	</div>
+
+	<div class="container">
+		<!-- Hero -->
+		<section class="hero">
+			<h1>hi, i'm vidha, 20.</h1>
+			<p class="hero-subtitle">full-stack developer, founder & product builder · jaipur, india</p>
+			<p class="hero-role">founder & ceo · contexta</p>
+			<p class="hero-intro">i build and ship things on the internet.</p>
+			<p class="hero-intro">usually something i probably didn't need to build.</p>
+			<p class="hero-currently">currently → building contexta</p>
+			
+			<!-- Profile Picture -->
+			<div class="profile-pic hover-lift">
+				<img src="/images/profile.jpg" alt="vidha" />
+			</div>
+
+			<!-- Handwritten Notes -->
+			<div class="handwritten-notes">
+				<span class="handwritten note-1 hover-wiggle">life is kind of a sidequest.</span>
+				<span class="handwritten note-2 hover-wiggle">randomly ships things at 2am.</span>
+			</div>
+		</section>
+
+		<!-- Currently -->
+		<section class="currently">
+			<h2>currently</h2>
+			<p class="section-caption">show that the site is alive and that i'm actually doing things online.</p>
+			
+			<div class="currently-grid">
+				<div class="currently-item">
+					<span class="currently-label">listening →</span>
+					<div class="spotify-track">
+						<img src="/images/spotify-artwork.jpg" alt="Spotify artwork" class="spotify-artwork" />
+						<span class="track-name">current Spotify track</span>
+					</div>
+				</div>
+				
+				<div class="currently-item">
+					<span class="currently-label">lately on x →</span>
+					<div class="x-posts">
+						<a href="#" class="x-post">recent post 1</a>
+						<a href="#" class="x-post">recent post 2</a>
+					</div>
+				</div>
+				
+				<div class="currently-item">
+					<span class="currently-label">building →</span>
+					<a href="#contexta" class="building-link">contexta</a>
+				</div>
+				
+				<div class="currently-item">
+					<span class="currently-label">around the internet →</span>
+					<a href="https://github.com/vidha" target="_blank" rel="noopener" class="github-link">github activity</a>
+				</div>
+			</div>
+			
+			<p class="currently-caption">i'm usually somewhere online doing something. come say hello!</p>
+		</section>
+
+		<!-- Skills -->
+		<section class="skills">
+			<h2>things i build with</h2>
+			
+			<div class="skill-category">
+				<h3>languages</h3>
+				<p>python · java · c · sql · matlab · move</p>
+			</div>
+			
+			<div class="skill-category">
+				<h3>backend</h3>
+				<p>fastapi · flask · rest apis</p>
+			</div>
+			
+			<div class="skill-category">
+				<h3>frontend</h3>
+				<p>react · vite · html · css</p>
+			</div>
+			
+			<div class="skill-category">
+				<h3>data / ml</h3>
+				<p>pandas · scikit-learn · xgboost · catboost</p>
+			</div>
+			
+			<div class="skill-category">
+				<h3>databases</h3>
+				<p>postgresql · mysql · sqlite · supabase</p>
+			</div>
+			
+			<div class="skill-category">
+				<h3>tools / other</h3>
+				<p>git · github · docker · ollama · tesseract · webrtc · ipfs</p>
+			</div>
+			
+			<p class="skills-note handwritten">i love python an unreasonable amount.</p>
+			<p class="skills-note handwritten">my toolbox changes. the urge to build things doesn't.</p>
+			
+			<a href="/stack" class="see-more">see my stack →</a>
+		</section>
+
+		<!-- Contexta -->
+		<section class="contexta" id="contexta">
+			<h2>currently building</h2>
+			<h3 class="project-title">contexta</h3>
+			<p class="project-role">founder & ceo</p>
+			<p class="project-description">codebases remember what was written.</p>
+			<p class="project-description">they don't really remember why.</p>
+			<p class="project-description">contexta is a tool that gives codebases a layer of memory — carrying decisions, history, and context alongside the code itself.</p>
+			
+			<p class="handwritten contexta-note">this is currently taking up an unreasonable amount of my brain.</p>
+			
+			<a href="#" class="project-link">building in public →</a>
+			<p class="project-status">in progress · 2026</p>
+			
+			<!-- Pre-incubation Photo -->
+			<div class="certificate-photo">
+				<img src="/images/pre-incubation.jpg" alt="Pre-incubation certificate" />
+			</div>
+			<p class="photo-caption">got pre-incubated recently. twice.</p>
+		</section>
+
+		<!-- Projects -->
+		<section class="projects">
+			<h2>things i've shipped</h2>
+			<p class="projects-intro">i like taking things from "hmm, what if…" to "oh, it's actually running."</p>
+			
+			<div class="projects-list">
+				<div class="project-item hover-lift">
+					<h3>contexta</h3>
+					<p>a conceptual memory layer for codebases</p>
+				</div>
+				
+				<div class="project-item hover-lift">
+					<h3>skippit</h3>
+					<p>async interviews for startups</p>
+				</div>
+				
+				<div class="project-item hover-lift">
+					<h3>ditto</h3>
+					<p>screenshots → useful information</p>
+				</div>
+				
+				<div class="project-item hover-lift">
+					<h3>snaptunnel</h3>
+					<p>peer-to-peer file sharing</p>
+				</div>
+				
+				<div class="project-item hover-lift">
+					<h3>ticketledger</h3>
+					<p>decentralized ticketing on aptos</p>
+				</div>
+				
+				<div class="project-item hover-lift">
+					<h3>accelerate</h3>
+					<p>builder community</p>
+				</div>
+			</div>
+			
+			<a href="/work" class="see-more">see everything i've built →</a>
+		</section>
+
+		<!-- Contributions -->
+		<section class="contributions">
+			<h2>contributions</h2>
+			<div class="github-graph">
+				<img src="/images/github-graph.png" alt="GitHub contribution graph" />
+			</div>
+			<p class="contributions-caption">slowly filling this thing up.</p>
+			<a href="https://github.com/vidha" target="_blank" rel="noopener" class="see-more">see my github →</a>
+		</section>
+
+		<!-- Experience -->
+		<section class="experience">
+			<h2>things i've worked on</h2>
+			
+			<div class="experience-list">
+				<div class="experience-item">
+					<h3>contexta</h3>
+					<p class="experience-role">founder & ceo · may 2026–present</p>
+				</div>
+				
+				<!-- Add more experience items as needed -->
+				<div class="experience-item">
+					<h3>[company name]</h3>
+					<p class="experience-role">[role] · [year/date]</p>
+					<p class="experience-description">1–2 lines describing what you actually worked on</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- EIS -->
+		<section class="eis">
+			<h2>i've been building with people too.</h2>
+			<p class="eis-intro">entrepreneur & innovation society, at my university</p>
+			<p class="eis-description">i'm an entrepreneur who loves startups, and i'm currently the general secretary of eis, working with students to build an entrepreneurship and innovation community at uni — teams, events, initiatives, and all the chaos that comes with making a student community work.</p>
+			<p class="handwritten eis-note">apparently i enjoy building communities almost as much as building products.</p>
+			
+			<div class="eis-photo">
+				<img src="/images/eis-team.jpg" alt="EIS team" />
+			</div>
+		</section>
+
+		<!-- Accelerate -->
+		<section class="accelerate">
+			<h2>i started a community, too.</h2>
+			<h3 class="community-title">accelerate</h3>
+			<p class="community-description">a builder community i started at muj around open source, collaboration, technical learning, and actually making things.</p>
+			<p class="community-philosophy">philosophy: don't compete to prove you're a builder. build.</p>
+			<p class="handwritten accelerate-note">this one started because i wanted a different kind of community.</p>
+			<a href="#" class="see-more">learn about accelerate →</a>
+			<p class="website-note">this website you're currently viewing is open source too, btw.</p>
+			<a href="https://github.com/vidha/portfolio" target="_blank" rel="noopener" class="see-more">see the code →</a>
+		</section>
+
+		<!-- A Little Bit of My Life -->
+		<section class="life">
+			<h2>a little bit of my life</h2>
+			<p class="life-intro">okay, enough developer stuff.</p>
+			<p class="life-opening">there's a person behind all these repositories.</p>
+			
+			<div class="life-section">
+				<h3>guitar era</h3>
+				<div class="guitar-video">
+					<img src="/gifs/guitar.gif" alt="Playing guitar" />
+				</div>
+				<p class="life-caption">decided i should learn guitar in december 2025. here's me playing something</p>
+			</div>
+			
+			<div class="life-section">
+				<h3>a book i loved</h3>
+				<p class="book-quote">"i may die young, but at least i'll die smart." — alaska young, looking for alaska by john green</p>
+			</div>
+			
+			<div class="life-section">
+				<h3>little pieces of life</h3>
+				<div class="life-photos">
+					<img src="/images/friends.jpg" alt="Friends" />
+					<img src="/images/university.jpg" alt="University" />
+					<img src="/images/trips.jpg" alt="Trips" />
+				</div>
+				<p class="life-caption">not everything needs to be a project.</p>
+			</div>
+			
+			<div class="life-section">
+				<h3>random sidequests</h3>
+				<p>music · video editing · guitar · reading · random experiments · cats</p>
+				<p class="handwritten">and approximately 47 unfinished side projects.</p>
+			</div>
+		</section>
+
+		<!-- Work With Me -->
+		<section class="work-with-me" id="work-with-me">
+			<h2>want something built?</h2>
+			<p class="work-intro">i also build for other people and love working with startups.</p>
+			<p class="work-description">mvps, web apps, backend systems, apis, internal tools, automations — if you have something that needs turning from "what if?" into "it's live," let's talk.</p>
+			<p class="work-style">i like working closely with people, figuring things out together, and shipping things rather than letting them sit in development purgatory.</p>
+			<a href="mailto:hello@vidha.com" class="cta-button">let's build something →</a>
+		</section>
+
+		<!-- Say Hi -->
+		<section class="say-hi" id="say-hi">
+			<h2>you don't have to hire me to say hi.</h2>
+			<p class="hi-intro">if you found your way here because you liked something i built, want to talk about startups, music, books, cats, or some completely unrelated rabbit hole — come say hi.</p>
+			<a href="mailto:hello@vidha.com" class="cta-button">just say hi →</a>
+		</section>
+	</div>
+</Layout>
+
+<style>
+	/* Navigation */
+	.nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		padding: 1rem 1.5rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: var(--bg-cream);
+		z-index: 100;
+		font-size: 0.875rem;
+	}
+
+	.nav-left,
+	.nav-right {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.nav-separator {
+		color: var(--text-muted);
+	}
+
+	/* Birthday Counter */
+	.birthday-counter {
+		position: fixed;
+		bottom: 1.5rem;
+		right: 1.5rem;
+		font-size: 0.875rem;
+		color: var(--text-muted);
+		background: var(--bg-cream);
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		border: 1px solid var(--border-subtle);
+	}
+
+	/* Hero */
+	.hero {
+		padding-top: 6rem;
+		min-height: 80vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.hero h1 {
+		margin-bottom: 1rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1.125rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.hero-role {
+		font-size: 0.875rem;
+		color: var(--accent-lavender);
+		margin-bottom: 1.5rem;
+	}
+
+	.hero-intro {
+		font-size: 1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.hero-currently {
+		font-size: 0.875rem;
+		color: var(--accent-lavender);
+		margin-top: 1rem;
+	}
+
+	.profile-pic {
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		overflow: hidden;
+		margin: 2rem 0;
+	}
+
+	.profile-pic img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.handwritten-notes {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-top: 1rem;
+	}
+
+	.note-1 {
+		position: relative;
+		left: 20px;
+	}
+
+	.note-2 {
+		position: relative;
+		right: 20px;
+		text-align: right;
+	}
+
+	/* Currently */
+	.section-caption {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+		margin-bottom: 2rem;
+	}
+
+	.currently-grid {
+		display: grid;
+		gap: 1.5rem;
+		margin-bottom: 2rem;
+	}
+
+	.currently-item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.currently-label {
+		font-size: 0.875rem;
+		color: var(--accent-lavender);
+	}
+
+	.spotify-track {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.spotify-artwork {
+		width: 48px;
+		height: 48px;
+		border-radius: 4px;
+		object-fit: cover;
+	}
+
+	.x-posts {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.x-post {
+		font-size: 0.875rem;
+		color: var(--text-charcoal-light);
+	}
+
+	.building-link,
+	.github-link {
+		font-size: 0.875rem;
+		color: var(--text-charcoal-light);
+	}
+
+	.currently-caption {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+		margin-top: 1rem;
+	}
+
+	/* Skills */
+	.skill-category {
+		margin-bottom: 1.5rem;
+	}
+
+	.skill-category h3 {
+		font-size: 1rem;
+		margin-bottom: 0.5rem;
+		color: var(--accent-lavender);
+	}
+
+	.skill-category p {
+		font-size: 0.9375rem;
+	}
+
+	.skills-note {
+		margin-top: 1.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.see-more {
+		display: inline-block;
+		margin-top: 1rem;
+		font-size: 0.875rem;
+		color: var(--accent-lavender);
+	}
+
+	/* Contexta */
+	.project-title {
+		font-size: 1.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.project-role {
+		font-size: 0.875rem;
+		color: var(--accent-lavender);
+		margin-bottom: 1rem;
+	}
+
+	.project-description {
+		font-size: 1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.contexta-note {
+		margin: 1.5rem 0;
+	}
+
+	.project-link {
+		display: inline-block;
+		margin-right: 1rem;
+		font-size: 0.875rem;
+		color: var(--accent-lavender);
+	}
+
+	.project-status {
+		display: inline-block;
+		font-size: 0.875rem;
+		color: var(--text-muted);
+	}
+
+	.certificate-photo {
+		margin: 2rem 0;
+		max-width: 300px;
+	}
+
+	.certificate-photo img {
+		width: 100%;
+		border-radius: 4px;
+	}
+
+	.photo-caption {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+	}
+
+	/* Projects */
+	.projects-intro {
+		margin-bottom: 2rem;
+	}
+
+	.projects-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.project-item h3 {
+		font-size: 1.125rem;
+		margin-bottom: 0.25rem;
+	}
+
+	.project-item p {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+	}
+
+	/* Contributions */
+	.github-graph {
+		margin: 1.5rem 0;
+		max-width: 100%;
+	}
+
+	.github-graph img {
+		width: 100%;
+		border-radius: 4px;
+	}
+
+	.contributions-caption {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+		margin-bottom: 0.5rem;
+	}
+
+	/* Experience */
+	.experience-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.experience-item h3 {
+		font-size: 1.125rem;
+		margin-bottom: 0.25rem;
+	}
+
+	.experience-role {
+		font-size: 0.875rem;
+		color: var(--accent-lavender);
+		margin-bottom: 0.5rem;
+	}
+
+	.experience-description {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+	}
+
+	/* EIS */
+	.eis-intro {
+		font-size: 0.875rem;
+		color: var(--accent-lavender);
+		margin-bottom: 1rem;
+	}
+
+	.eis-description {
+		font-size: 0.9375rem;
+		margin-bottom: 1rem;
+	}
+
+	.eis-note {
+		margin: 1rem 0;
+	}
+
+	.eis-photo {
+		margin: 1.5rem 0;
+		max-width: 400px;
+	}
+
+	.eis-photo img {
+		width: 100%;
+		border-radius: 4px;
+	}
+
+	/* Accelerate */
+	.community-title {
+		font-size: 1.25rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.community-description {
+		font-size: 0.9375rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.community-philosophy {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+		font-style: italic;
+		margin-bottom: 1rem;
+	}
+
+	.accelerate-note {
+		margin: 1rem 0;
+	}
+
+	.website-note {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+		margin-top: 1rem;
+	}
+
+	/* Life */
+	.life-intro {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+		margin-bottom: 0.5rem;
+	}
+
+	.life-opening {
+		font-size: 1rem;
+		margin-bottom: 2rem;
+	}
+
+	.life-section {
+		margin-bottom: 2rem;
+	}
+
+	.life-section h3 {
+		font-size: 1rem;
+		margin-bottom: 0.75rem;
+		color: var(--accent-lavender);
+	}
+
+	.guitar-video {
+		margin: 1rem 0;
+		max-width: 300px;
+	}
+
+	.guitar-video img {
+		width: 100%;
+		border-radius: 4px;
+	}
+
+	.book-quote {
+		font-size: 0.9375rem;
+		font-style: italic;
+		color: var(--text-charcoal-light);
+		padding: 1rem;
+		background: var(--bg-cream-dark);
+		border-radius: 4px;
+	}
+
+	.life-photos {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 0.75rem;
+		margin: 1rem 0;
+	}
+
+	.life-photos img {
+		width: 100%;
+		height: 150px;
+		object-fit: cover;
+		border-radius: 4px;
+	}
+
+	.life-caption {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+	}
+
+	/* Work With Me */
+	.work-intro {
+		font-size: 0.875rem;
+		color: var(--accent-lavender);
+		margin-bottom: 1rem;
+	}
+
+	.work-description,
+	.work-style {
+		font-size: 0.9375rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.cta-button {
+		display: inline-block;
+		margin-top: 1.5rem;
+		padding: 0.75rem 1.5rem;
+		background: var(--accent-lavender);
+		color: white;
+		border-radius: 4px;
+		font-size: 0.875rem;
+		transition: background 0.2s ease, transform 0.2s ease;
+	}
+
+	.cta-button:hover {
+		background: var(--accent-lavender-light);
+		color: var(--text-charcoal);
+		transform: translateY(-2px);
+	}
+
+	/* Say Hi */
+	.hi-intro {
+		font-size: 0.9375rem;
+		margin-bottom: 1rem;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.nav {
+			flex-direction: column;
+			gap: 0.75rem;
+			padding: 0.75rem 1rem;
+		}
+
+		.birthday-counter {
+			bottom: 1rem;
+			right: 1rem;
+			font-size: 0.75rem;
+		}
+
+		.hero {
+			padding-top: 5rem;
+			min-height: auto;
+		}
+
+		.life-photos {
+			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+		}
+
+		.life-photos img {
+			height: 120px;
+		}
+	}
+</style>
+
+<script>
+	// Birthday counter
+	function updateBirthdayCounter() {
+		const birthday = new Date('2027-09-19'); // Update with actual birthday
+		const now = new Date();
+		const diff = birthday - now;
+		const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+		
+		const daysCountEl = document.getElementById('days-count');
+		if (daysCountEl && days > 0) {
+			daysCountEl.textContent = days;
+		}
+	}
+
+	updateBirthdayCounter();
+</script>

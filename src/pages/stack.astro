@@ -1,0 +1,247 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="things i build with">
+	<div class="container">
+		<header class="page-header">
+			<h1>things i build with</h1>
+			<p class="page-intro">a deeper technical breakdown of what i use and why.</p>
+		</header>
+
+		<!-- Python -->
+		<section class="tech-section">
+			<h2>python</h2>
+			<p class="tech-description">my default for backend systems, tooling, apis, ml, and most things that need to get built quickly.</p>
+			<div class="tech-details">
+				<div class="detail-item">
+					<span class="detail-label">use cases:</span>
+					<span class="detail-value">backend apis · data processing · ml models · automation · scripting</span>
+				</div>
+				<div class="detail-item">
+					<span class="detail-label">why:</span>
+					<span class="detail-value">fast to write, huge ecosystem, reads like english</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- FastAPI -->
+		<section class="tech-section">
+			<h2>fastapi</h2>
+			<p class="tech-description">my go-to for apis and backend services.</p>
+			<div class="tech-details">
+				<div class="detail-item">
+					<span class="detail-label">use cases:</span>
+					<span class="detail-value">rest apis · microservices · web backends</span>
+				</div>
+				<div class="detail-item">
+					<span class="detail-label">why:</span>
+					<span class="detail-value">fast, async support, automatic docs, type hints</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Flask -->
+		<section class="tech-section">
+			<h2>flask</h2>
+			<p class="tech-description">for when i need something simple and flexible.</p>
+			<div class="tech-details">
+				<div class="detail-item">
+					<span class="detail-label">use cases:</span>
+					<span class="detail-value">small apis · prototypes · quick scripts</span>
+				</div>
+				<div class="detail-item">
+					<span class="detail-label">why:</span>
+					<span class="detail-value">minimal, easy to start, great for small projects</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- React -->
+		<section class="tech-section">
+			<h2>react</h2>
+			<p class="tech-description">for building interactive frontends.</p>
+			<div class="tech-details">
+				<div class="detail-item">
+					<span class="detail-label">use cases:</span>
+					<span class="detail-value">web apps · dashboards · interactive ui</span>
+				</div>
+				<div class="detail-item">
+					<span class="detail-label">why:</span>
+					<span class="detail-value">component-based, huge ecosystem, great tooling</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- PostgreSQL -->
+		<section class="tech-section">
+			<h2>postgresql</h2>
+			<p class="tech-description">my default database for serious projects.</p>
+			<div class="tech-details">
+				<div class="detail-item">
+					<span class="detail-label">use cases:</span>
+					<span class="detail-value">relational data · production apps · complex queries</span>
+				</div>
+				<div class="detail-item">
+					<span class="detail-label">why:</span>
+					<span class="detail-value">reliable, feature-rich, great for structured data</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Docker -->
+		<section class="tech-section">
+			<h2>docker</h2>
+			<p class="tech-description">for containerization and deployment.</p>
+			<div class="tech-details">
+				<div class="detail-item">
+					<span class="detail-label">use cases:</span>
+					<span class="detail-value">deployment · development environments · consistent builds</span>
+				</div>
+				<div class="detail-item">
+					<span class="detail-label">why:</span>
+					<span class="detail-value">works everywhere, isolates dependencies, easy deployment</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Git -->
+		<section class="tech-section">
+			<h2>git</h2>
+			<p class="tech-description">version control, obviously.</p>
+			<div class="tech-details">
+				<div class="detail-item">
+					<span class="detail-label">use cases:</span>
+					<span class="detail-value">version control · collaboration · backup</span>
+				</div>
+				<div class="detail-item">
+					<span class="detail-label">why:</span>
+					<span class="detail-value">standard, reliable, essential for any project</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- ML Tools -->
+		<section class="tech-section">
+			<h2>ml tools</h2>
+			<p class="tech-description">pandas, scikit-learn, xgboost, catboost for data and machine learning.</p>
+			<div class="tech-details">
+				<div class="detail-item">
+					<span class="detail-label">use cases:</span>
+					<span class="detail-value">data analysis · ml models · predictions · data processing</span>
+				</div>
+				<div class="detail-item">
+					<span class="detail-label">why:</span>
+					<span class="detail-value">powerful, well-documented, great for data work</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Other Tools -->
+		<section class="tech-section">
+			<h2>other tools</h2>
+			<p class="tech-description">ollama, tesseract, webrtc, ipfs for specific use cases.</p>
+			<div class="tech-details">
+				<div class="detail-item">
+					<span class="detail-label">ollama:</span>
+					<span class="detail-value">local llms, ai features</span>
+				</div>
+				<div class="detail-item">
+					<span class="detail-label">tesseract:</span>
+					<span class="detail-value">ocr, text extraction from images</span>
+				</div>
+				<div class="detail-item">
+					<span class="detail-label">webrtc:</span>
+					<span class="detail-value">real-time communication, video/audio</span>
+				</div>
+				<div class="detail-item">
+					<span class="detail-label">ipfs:</span>
+					<span class="detail-value">decentralized storage, file sharing</span>
+				</div>
+			</div>
+		</section>
+
+		<p class="handwritten stack-note">my toolbox changes. the urge to build things doesn't.</p>
+	</div>
+</Layout>
+
+<style>
+	.page-header {
+		padding: 4rem 0 2rem;
+	}
+
+	.page-header h1 {
+		margin-bottom: 1rem;
+	}
+
+	.page-intro {
+		font-size: 1rem;
+		color: var(--text-charcoal-light);
+	}
+
+	.tech-section {
+		padding: 2rem 0;
+		border-bottom: 1px solid var(--border-light);
+	}
+
+	.tech-section:last-child {
+		border-bottom: none;
+	}
+
+	.tech-section h2 {
+		font-size: 1.25rem;
+		margin-bottom: 0.75rem;
+		color: var(--accent-lavender);
+	}
+
+	.tech-description {
+		font-size: 0.9375rem;
+		margin-bottom: 1rem;
+		line-height: 1.7;
+	}
+
+	.tech-details {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.detail-item {
+		font-size: 0.875rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.detail-label {
+		color: var(--text-muted);
+		min-width: 80px;
+	}
+
+	.detail-value {
+		color: var(--text-charcoal-light);
+	}
+
+	.stack-note {
+		margin-top: 2rem;
+	}
+
+	@media (max-width: 768px) {
+		.page-header {
+			padding: 3rem 0 1.5rem;
+		}
+
+		.tech-section {
+			padding: 1.5rem 0;
+		}
+
+		.detail-item {
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+
+		.detail-label {
+			min-width: auto;
+		}
+	}
+</style>
