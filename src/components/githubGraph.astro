@@ -1,0 +1,85 @@
+---
+interface Props {
+  data: {
+    totalContributions: number;
+    weeks: {
+      contributionDays: {
+        date: string;
+        contributionCount: number;
+        color: string;
+      }[];
+    }[];
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<pre>
+    <div class="github-graph">
+    {data.weeks.map((week) => (
+        <div class="github-week">
+        {week.contributionDays.map((day) => {
+            let level = 0;
+
+            if (day.contributionCount >= 10) {
+            level = 4;
+            } else if (day.contributionCount >= 6) {
+            level = 3;
+            } else if (day.contributionCount >= 3) {
+            level = 2;
+            } else if (day.contributionCount >= 1) {
+            level = 1;
+            }
+
+            return (
+            <div
+                class={`github-day github-level-${level}`}
+                title={`${day.date}: ${day.contributionCount} contributions`}
+            ></div>
+            );
+        })}
+        </div>
+    ))}
+    </div>
+</pre>
+
+<style>
+    .github-graph {
+    display: flex;
+    gap: 4px;
+    }
+
+    .github-week {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    }
+
+    .github-day {
+    width: 11px;
+    height: 11px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    }
+
+    .github-level-0 {
+    background: #eee8dc;
+    }
+
+    .github-level-1 {
+    background: #d8c9df;
+    }
+
+    .github-level-2 {
+    background: #b9a1c4;
+    }
+
+    .github-level-3 {
+    background: #9476a2;
+    }
+
+    .github-level-4 {
+    background: #6f527e;
+    }
+</style>
