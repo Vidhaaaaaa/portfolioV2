@@ -17,7 +17,7 @@ const { title = "vidha" } = Astro.props;
 		<title>{title}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://unpkg.com/github-contrib-graph@3.1.1/dist/gh.css" />
 	</head>
 	<body>
@@ -27,19 +27,23 @@ const { title = "vidha" } = Astro.props;
 
 <style is:global>
 	:root {
-		--bg-paper: #f7f4ed;
-		--bg-paper-dark: #f0ece3;
-		--text-charcoal: #2a2723;
-		--text-charcoal-light: #484540;
-		--text-muted: #6b6762;
-		--accent-lavender: #a898b0;
-		--accent-lavender-light: #c4b8cc;
-		--accent-gold: #c9a962;
-		--accent-gold-light: #dfc48a;
-		--border-subtle: #e5e0d8;
-		--border-light: #ebe7df;
-		--surface: #ffffff;
-		--surface-subtle: #faf8f5;
+		/* Engineering console palette - near-black + warm off-white + electric blue */
+		--bg-primary: #0a0a0a;
+		--bg-secondary: #141414;
+		--bg-tertiary: #1a1a1a;
+		--text-primary: #f5f5f0;
+		--text-secondary: #a0a0a0;
+		--text-tertiary: #606060;
+		--accent-blue: #3b82f6;
+		--accent-blue-light: #60a5fa;
+		--accent-blue-dark: #2563eb;
+		--border-subtle: #2a2a2a;
+		--border-medium: #3a3a3a;
+		--surface: #141414;
+		--surface-elevated: #1a1a1a;
+		--mono-font: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+		--status-green: #22c55e;
+		--status-yellow: #eab308;
 	}
 
 	* {
@@ -55,18 +59,19 @@ const { title = "vidha" } = Astro.props;
 
 	body {
 		font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-		background-color: var(--bg-paper);
-		color: var(--text-charcoal);
-		line-height: 1.6;
+		background-color: var(--bg-primary);
+		color: var(--text-primary);
+		line-height: 1.5;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
 
 	/* Typography - all lowercase */
 	h1, h2, h3, h4, h5, h6 {
-		font-weight: 500;
-		color: var(--text-charcoal);
-		line-height: 1.3;
+		font-weight: 600;
+		color: var(--text-primary);
+		line-height: 1.2;
+		letter-spacing: -0.02em;
 	}
 
 	h1 {
@@ -85,37 +90,60 @@ const { title = "vidha" } = Astro.props;
 	}
 
 	p {
-		color: var(--text-charcoal-light);
+		color: var(--text-secondary);
 		margin-bottom: 1rem;
 	}
 
 	a {
-		color: var(--text-charcoal);
+		color: var(--text-primary);
 		text-decoration: none;
 		transition: color 0.2s ease;
 	}
 
 	a:hover {
-		color: var(--accent-lavender);
+		color: var(--accent-blue-light);
 	}
 
-	/* Handwritten font for personal notes */
-	.handwritten {
-		font-family: 'Caveat', cursive;
-		font-size: 1.1rem;
-		color: var(--text-muted);
+	/* Monospace for technical metadata */
+	.mono {
+		font-family: var(--mono-font);
+		font-size: 0.85em;
+		color: var(--text-tertiary);
 	}
 
-	/* Main content container - central column */
-	.container {
-		max-width: 800px;
+	.mono-accent {
+		font-family: var(--mono-font);
+		font-size: 0.85em;
+		color: var(--accent-blue-light);
+	}
+
+	/* Section-specific width containers */
+	.container-narrow {
+		max-width: 700px;
 		margin: 0 auto;
+		padding: 0 1.5rem;
+	}
+
+	.container-medium {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+	}
+
+	.container-wide {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+	}
+
+	.container-full {
+		width: 100%;
 		padding: 0 1.5rem;
 	}
 
 	/* Section spacing */
 	section {
-		padding: 4rem 0;
+		padding: 5rem 0;
 	}
 
 	/* Subtle animations */
@@ -203,7 +231,7 @@ const { title = "vidha" } = Astro.props;
 		height: 1px;
 		bottom: -2px;
 		left: 0;
-		background-color: var(--accent-lavender);
+		background-color: var(--accent-blue-light);
 		transition: width 0.2s ease;
 	}
 

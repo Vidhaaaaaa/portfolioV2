@@ -10,257 +10,391 @@ const githubData = await getGithubContributions();
 <Layout title="vidha">
 	<!-- Navigation -->
 	<nav class="nav">
-		<div class="nav-left">
-			<a href="https://github.com/vidha" target="_blank" rel="noopener">github</a>
-			<span class="nav-separator">·</span>
-			<a href="https://x.com/vidha" target="_blank" rel="noopener">x</a>
-			<span class="nav-separator">·</span>
-			<a href="https://linkedin.com/in/vidha" target="_blank" rel="noopener">linkedin</a>
-			<span class="nav-separator">·</span>
-			<a href="mailto:hello@vidha.com">email</a>
-		</div>
-		<div class="nav-right">
-			<a href="#contact">work with me →</a>
-			<span class="nav-separator">·</span>
-			<a href="mailto:hello@vidha.com">just say hi →</a>
+		<div class="nav-inner container-wide">
+			<div class="nav-top">
+				<GithubGraph data={githubData} />
+			</div>
+			<div class="nav-bottom">
+				<div class="nav-left">
+					<span class="mono-accent">vidha</span>
+					<span class="nav-separator mono">/</span>
+					<a href="https://github.com/vidha" target="_blank" rel="noopener" class="mono">github</a>
+					<span class="nav-separator mono">/</span>
+					<a href="https://x.com/vidha" target="_blank" rel="noopener" class="mono">x</a>
+					<span class="nav-separator mono">/</span>
+					<a href="https://linkedin.com/in/vidha" target="_blank" rel="noopener" class="mono">linkedin</a>
+					<span class="nav-separator mono">/</span>
+					<a href="mailto:hello@vidha.com" class="mono">email</a>
+				</div>
+				<div class="nav-right">
+					<a href="#contact" class="mono-accent">[ CONNECT ]</a>
+				</div>
+			</div>
 		</div>
 	</nav>
 
 	<!-- Birthday Counter -->
-	<div class="birthday-counter">
+	<div class="birthday-counter mono">
 		<span id="days-count">[dynamic]</span> till i turn 21
 	</div>
 
-	<div class="container">
-		<!-- Hero -->
-		<section class="hero">
-
-			<GithubGraph data={githubData} />
-			
-			<div class="hero-header">
-				<img src="../src/images/pfp.jpeg" alt="vidha" class="profile-pic" />
-				<h1>hi, i'm vidha, 20.</h1>
-			</div>
-
-			<p class="handwritten hero-intro">i build and ship things on the internet.</p>
-			<p class="handwritten hero-intro">usually something i probably didn't need to build.</p>
-
-			<p class="hero-role">full-stack developer · founder · product builder</p>
-
-			<!-- Skills -->
-			<div class="skills">
-				<span class="skill-icon" title="Python">🐍</span>
-				<span class="skill-icon" title="FastAPI">⚡</span>
-				<span class="skill-icon" title="PostgreSQL">🐘</span>
-				<span class="skill-icon" title="Git">📦</span>
-				<span class="skill-icon" title="Docker">🐳</span>
-				<span class="skill-icon" title="React">⚛️</span>
-				<span class="skill-icon" title="C">©️</span>
-				<span class="skill-icon" title="Java">☕</span>
-			</div>
-
-			<!-- Tiny Live Details -->
-			<div class="live-details">
-				<div class="live-item">
-					<span class="live-icon">♫</span>
-					<span class="live-text">currently listening — <a href="#">song · artist</a></span>
+	<!-- Hero -->
+	<section class="hero container-wide">
+		<div class="hero-layout">
+			<!-- Left: Profile + Metadata -->
+			<div class="hero-left">
+				<div class="profile-section">
+					<img src="../src/images/pfp.jpeg" alt="vidha" class="profile-pic" />
 				</div>
-				<div class="live-item">
-					<span class="live-icon">𝕏</span>
-					<span class="live-text">latest — <a href="#" target="_blank" rel="noopener">short preview</a></span>
-				</div>
-			</div>
-
-			<!-- Contexta -->
-			<div class="contexta-card">
-				<p class="contexta-label">currently building</p>
-				<h3 class="contexta-name">contexta</h3>
-				<p class="contexta-role">founder & ceo · 2026</p>
-				<p class="contexta-desc">a memory layer for codebases.</p>
-			</div>
-		</section>
-
-		<!-- Projects -->
-		<section class="projects">
-			<h2>things i've built</h2>
-			
-			<div class="project-grid">
-				<div class="project-card">
-					<div class="project-image">
-						<img src="/images/contexta-preview.jpg" alt="contexta" />
+				
+				<div class="inspection-panel">
+					<div class="inspection-row">
+						<span class="inspection-label mono">IDENTITY</span>
+						<span class="inspection-value">VIDHA SINGH CHAUHAN</span>
 					</div>
-					<h3>contexta</h3>
-					<p class="project-desc">a conceptual memory layer for codebases</p>
-					<div class="project-stack">
-						<span class="stack-item">python</span>
-						<span class="stack-item">fastapi</span>
-						<span class="stack-item">postgresql</span>
+					<div class="inspection-row">
+						<span class="inspection-label mono">ROLE</span>
+						<span class="inspection-value">SOFTWARE DEVELOPER</span>
 					</div>
-					<div class="project-links">
-						<a href="#" class="project-link">live</a>
-						<a href="https://github.com/vidha/contexta" target="_blank" rel="noopener" class="project-link">github</a>
+					<div class="inspection-row">
+						<span class="inspection-label mono">EXPERIENCE</span>
+						<span class="inspection-value">03+ YEARS</span>
 					</div>
-				</div>
-
-				<div class="project-card">
-					<div class="project-image">
-						<img src="/images/skippit-preview.jpg" alt="skippit" />
-					</div>
-					<h3>skippit</h3>
-					<p class="project-desc">async interviews for startups</p>
-					<div class="project-stack">
-						<span class="stack-item">python</span>
-						<span class="stack-item">flask</span>
-						<span class="stack-item">webrtc</span>
-					</div>
-					<div class="project-links">
-						<a href="#" class="project-link">live</a>
-						<a href="https://github.com/vidha/skippit" target="_blank" rel="noopener" class="project-link">github</a>
-					</div>
-				</div>
-
-				<div class="project-card">
-					<div class="project-image">
-						<img src="/images/ditto-preview.jpg" alt="ditto" />
-					</div>
-					<h3>ditto</h3>
-					<p class="project-desc">screenshots → useful information</p>
-					<div class="project-stack">
-						<span class="stack-item">python</span>
-						<span class="stack-item">fastapi</span>
-						<span class="stack-item">tesseract</span>
-					</div>
-					<div class="project-links">
-						<a href="#" class="project-link">live</a>
-						<a href="https://github.com/vidha/ditto" target="_blank" rel="noopener" class="project-link">github</a>
-					</div>
-				</div>
-
-				<div class="project-card">
-					<div class="project-image">
-						<img src="/images/snaptunnel-preview.jpg" alt="snaptunnel" />
-					</div>
-					<h3>snaptunnel</h3>
-					<p class="project-desc">peer-to-peer file sharing</p>
-					<div class="project-stack">
-						<span class="stack-item">javascript</span>
-						<span class="stack-item">webtorrent</span>
-						<span class="stack-item">webrtc</span>
-					</div>
-					<div class="project-links">
-						<a href="#" class="project-link">live</a>
-						<a href="https://github.com/vidha/snaptunnel" target="_blank" rel="noopener" class="project-link">github</a>
-					</div>
-				</div>
-
-				<div class="project-card">
-					<div class="project-image">
-						<img src="/images/ticketledger-preview.jpg" alt="ticketledger" />
-					</div>
-					<h3>ticketledger</h3>
-					<p class="project-desc">decentralized ticketing on aptos</p>
-					<div class="project-stack">
-						<span class="stack-item">move</span>
-						<span class="stack-item">aptos</span>
-						<span class="stack-item">typescript</span>
-					</div>
-					<div class="project-links">
-						<a href="#" class="project-link">live</a>
-						<a href="https://github.com/vidha/ticketledger" target="_blank" rel="noopener" class="project-link">github</a>
-					</div>
-				</div>
-
-				<div class="project-card">
-					<div class="project-image">
-						<img src="/images/accelerate-preview.jpg" alt="accelerate" />
-					</div>
-					<h3>accelerate</h3>
-					<p class="project-desc">builder community</p>
-					<div class="project-stack">
-						<span class="stack-item">community</span>
-						<span class="stack-item">open source</span>
-					</div>
-					<div class="project-links">
-						<a href="#" class="project-link">learn more</a>
+					<div class="inspection-row">
+						<span class="inspection-label mono">STATUS</span>
+						<span class="inspection-value status-building">
+							<span class="status-dot"></span>
+							BUILDING
+						</span>
 					</div>
 				</div>
 			</div>
 
-			<a href="/work" class="see-more">see everything i've built →</a>
-		</section>
+			<!-- Right: Statement -->
+			<div class="hero-right">
+				<div class="hero-statement">
+					<p class="hero-intro">i build and ship things on the internet.</p>
+					<p class="hero-intro">usually something i probably didn't need to build.</p>
+				</div>
 
-		<!-- Experience -->
-		<section class="experience">
+				<!-- Contexta Status -->
+				<div class="current-system">
+					<div class="system-header">
+						<span class="mono">CURRENT SYSTEM</span>
+						<span class="status-indicator mono status-building">● ACTIVE</span>
+					</div>
+					<div class="system-body">
+						<h3>contexta</h3>
+						<p class="mono">memory layer for codebases</p>
+						<div class="system-meta">
+							<span class="mono">FOUNDER · CEO</span>
+							<span class="mono">2026</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Projects -->
+	<section class="projects container-wide">
+		<div class="projects-header">
+			<h2>projects</h2>
+			<p class="mono">SYSTEM INSPECTION</p>
+		</div>
+		
+		<div class="projects-list">
+			<!-- Contexta - Primary -->
+			<div class="project-panel project-primary">
+				<div class="panel-header">
+					<div class="panel-title">
+						<span class="mono">PROJECT</span>
+						<h3>contexta</h3>
+					</div>
+					<div class="panel-status">
+						<span class="mono status-building">● BUILDING</span>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="panel-grid">
+						<div class="panel-main">
+							<p class="project-desc">a memory layer for codebases</p>
+							<div class="panel-meta">
+								<div class="meta-row">
+									<span class="mono">YEAR</span>
+									<span class="mono">2026</span>
+								</div>
+								<div class="meta-row">
+									<span class="mono">ROLE</span>
+									<span class="mono">FOUNDER · DEVELOPER</span>
+								</div>
+								<div class="meta-row">
+									<span class="mono">STACK</span>
+									<span class="mono">PYTHON · FASTAPI · SUPABASE</span>
+								</div>
+							</div>
+						</div>
+						<div class="panel-actions">
+							<a href="#" class="mono-accent">[ LIVE ]</a>
+							<a href="https://github.com/vidha/contexta" target="_blank" rel="noopener" class="mono-accent">[ GITHUB ]</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Skippit -->
+			<div class="project-panel">
+				<div class="panel-header">
+					<div class="panel-title">
+						<span class="mono">PROJECT</span>
+						<h3>skippit</h3>
+					</div>
+					<div class="panel-status">
+						<span class="mono">● COMPLETE</span>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="panel-grid">
+						<div class="panel-main">
+							<p class="project-desc">async interviews for startups</p>
+							<div class="panel-meta">
+								<div class="meta-row">
+									<span class="mono">YEAR</span>
+									<span class="mono">2025</span>
+								</div>
+								<div class="meta-row">
+									<span class="mono">ROLE</span>
+									<span class="mono">DEVELOPER</span>
+								</div>
+								<div class="meta-row">
+									<span class="mono">STACK</span>
+									<span class="mono">PYTHON · FLASK · WEBRTC</span>
+								</div>
+							</div>
+						</div>
+						<div class="panel-actions">
+							<a href="#" class="mono-accent">[ LIVE ]</a>
+							<a href="https://github.com/vidha/skippit" target="_blank" rel="noopener" class="mono-accent">[ GITHUB ]</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Ditto -->
+			<div class="project-panel">
+				<div class="panel-header">
+					<div class="panel-title">
+						<span class="mono">PROJECT</span>
+						<h3>ditto</h3>
+					</div>
+					<div class="panel-status">
+						<span class="mono">● COMPLETE</span>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="panel-grid">
+						<div class="panel-main">
+							<p class="project-desc">screenshots → useful information</p>
+							<div class="panel-meta">
+								<div class="meta-row">
+									<span class="mono">YEAR</span>
+									<span class="mono">2025</span>
+								</div>
+								<div class="meta-row">
+									<span class="mono">ROLE</span>
+									<span class="mono">DEVELOPER</span>
+								</div>
+								<div class="meta-row">
+									<span class="mono">STACK</span>
+									<span class="mono">PYTHON · FASTAPI · TESSERACT</span>
+								</div>
+							</div>
+						</div>
+						<div class="panel-actions">
+							<a href="#" class="mono-accent">[ LIVE ]</a>
+							<a href="https://github.com/vidha/ditto" target="_blank" rel="noopener" class="mono-accent">[ GITHUB ]</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- SnapTunnel -->
+			<div class="project-panel">
+				<div class="panel-header">
+					<div class="panel-title">
+						<span class="mono">PROJECT</span>
+						<h3>snaptunnel</h3>
+					</div>
+					<div class="panel-status">
+						<span class="mono">● COMPLETE</span>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="panel-grid">
+						<div class="panel-main">
+							<p class="project-desc">peer-to-peer file sharing</p>
+							<div class="panel-meta">
+								<div class="meta-row">
+									<span class="mono">YEAR</span>
+									<span class="mono">2025</span>
+								</div>
+								<div class="meta-row">
+									<span class="mono">ROLE</span>
+									<span class="mono">DEVELOPER</span>
+								</div>
+								<div class="meta-row">
+									<span class="mono">STACK</span>
+									<span class="mono">JAVASCRIPT · WEBTORRENT · WEBRTC</span>
+								</div>
+							</div>
+						</div>
+						<div class="panel-actions">
+							<a href="#" class="mono-accent">[ LIVE ]</a>
+							<a href="https://github.com/vidha/snaptunnel" target="_blank" rel="noopener" class="mono-accent">[ GITHUB ]</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- TicketLedger -->
+			<div class="project-panel">
+				<div class="panel-header">
+					<div class="panel-title">
+						<span class="mono">PROJECT</span>
+						<h3>ticketledger</h3>
+					</div>
+					<div class="panel-status">
+						<span class="mono">● COMPLETE</span>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="panel-grid">
+						<div class="panel-main">
+							<p class="project-desc">decentralized ticketing on aptos</p>
+							<div class="panel-meta">
+								<div class="meta-row">
+									<span class="mono">YEAR</span>
+									<span class="mono">2025</span>
+								</div>
+								<div class="meta-row">
+									<span class="mono">ROLE</span>
+									<span class="mono">DEVELOPER</span>
+								</div>
+								<div class="meta-row">
+									<span class="mono">STACK</span>
+									<span class="mono">MOVE · APTOS · TYPESCRIPT</span>
+								</div>
+							</div>
+						</div>
+						<div class="panel-actions">
+							<a href="#" class="mono-accent">[ LIVE ]</a>
+							<a href="https://github.com/vidha/ticketledger" target="_blank" rel="noopener" class="mono-accent">[ GITHUB ]</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<a href="/work" class="see-more mono-accent">[ VIEW ALL SYSTEMS ]</a>
+	</section>
+
+	<!-- Experience -->
+	<section class="experience container-wide">
+		<div class="experience-header">
 			<h2>experience</h2>
-			
-			<div class="experience-list">
-				<div class="experience-item">
-					<h3>contexta</h3>
-					<p class="experience-role">founder & ceo · may 2026–present</p>
-				</div>
-
-				<div class="experience-item">
-					<h3>[company name]</h3>
-					<p class="experience-role">[role] · [year/date]</p>
-					<p class="experience-desc">1–2 lines describing what you actually worked on</p>
+			<p class="mono">ENGINEERING HISTORY</p>
+		</div>
+		
+		<div class="experience-timeline">
+			<div class="timeline-entry">
+				<div class="timeline-marker mono">2026</div>
+				<div class="timeline-content">
+					<div class="timeline-header">
+						<h3>contexta</h3>
+						<span class="mono status-building">● ACTIVE</span>
+					</div>
+					<p class="mono">FOUNDER · CEO</p>
+					<p class="timeline-desc">building a memory layer for codebases</p>
 				</div>
 			</div>
 
-			<a href="/work" class="see-more">see full experience →</a>
-		</section>
+			<div class="timeline-entry">
+				<div class="timeline-marker mono">2025</div>
+				<div class="timeline-content">
+					<div class="timeline-header">
+						<h3>[company name]</h3>
+						<span class="mono">● COMPLETE</span>
+					</div>
+					<p class="mono">[role]</p>
+					<p class="timeline-desc">1–2 lines describing what you actually worked on</p>
+				</div>
+			</div>
+		</div>
 
-		<!-- Contact -->
-		<section class="contact" id="contact">
-			<h2>want to build something?</h2>
-			<p class="contact-desc">i build web apps, backend systems, APIs, internal tools, MVPs and automations for startups and other people building things.</p>
-			<a href="mailto:hello@vidha.com" class="cta-button">let's talk →</a>
-		</section>
+		<a href="/work" class="see-more mono-accent">[ VIEW FULL HISTORY ]</a>
+	</section>
 
-		<!-- Communities -->
-		<section class="communities">
+	<!-- Contact -->
+	<section class="contact container-wide" id="contact">
+		<div class="contact-panel">
+			<div class="panel-header">
+				<span class="mono">SYSTEM ACTION</span>
+				<span class="mono">● READY</span>
+			</div>
+			<div class="panel-body">
+				<h2>ready to connect?</h2>
+				<p class="contact-desc">i build web apps, backend systems, APIs, internal tools, MVPs and automations for startups and other people building things.</p>
+				<a href="mailto:hello@vidha.com" class="system-button mono-accent">[ SEND MESSAGE ]</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Communities -->
+	<section class="communities container-medium">
+		<div class="communities-header">
 			<h2>communities</h2>
-			
-			<div class="community-list">
-				<div class="community-item">
+			<p class="mono">SECONDARY CONTEXT</p>
+		</div>
+		
+		<div class="community-list">
+			<div class="community-item">
+				<div class="community-main">
 					<h3>eis</h3>
-					<p class="community-role">general secretary</p>
+					<p class="mono">GENERAL SECRETARY</p>
 					<p class="community-desc">building entrepreneurship and innovation at university</p>
 				</div>
+			</div>
 
-				<div class="community-item">
+			<div class="community-item">
+				<div class="community-main">
 					<h3>accelerate</h3>
-					<p class="community-role">founder</p>
+					<p class="mono">FOUNDER</p>
 					<p class="community-desc">builder community around open source and collaboration</p>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<!-- Personal -->
-		<section class="personal">
+	<!-- Personal -->
+	<section class="personal container-narrow">
+		<div class="personal-header">
 			<h2>beyond code</h2>
-			
-			<div class="personal-grid">
-				<div class="personal-item">
-					<img src="/gifs/guitar.gif" alt="Guitar" class="personal-img" />
-					<p class="personal-caption">learning guitar since december 2025</p>
-				</div>
-				
-				<div class="personal-item">
-					<img src="/images/friends.jpg" alt="Friends" class="personal-img" />
-					<p class="personal-caption">friends · university · life</p>
-				</div>
-				
-				<div class="personal-item">
-					<p class="personal-text">music · video editing · reading · random experiments · cats</p>
-					<p class="handwritten">and approximately 47 unfinished side projects.</p>
-				</div>
+			<p class="mono">ADDITIONAL CONTEXT</p>
+		</div>
+		
+		<div class="personal-list">
+			<div class="personal-item">
+				<p class="mono">music · video editing · reading · random experiments · cats</p>
+				<p class="personal-note">and approximately 47 unfinished side projects.</p>
 			</div>
-		</section>
-	</div>
+		</div>
+	</section>
 
 	<!-- Footer -->
-	<footer class="footer">
-		<p> 2026 vidha · <a href="https://github.com/vidha/portfolio" target="_blank" rel="noopener">this site is open source</a></p>
+	<footer class="footer container-wide">
+		<div class="footer-inner">
+			<p class="mono">© 2026 vidha · <a href="https://github.com/vidha/portfolio" target="_blank" rel="noopener">[ SOURCE ]</a></p>
+		</div>
 	</footer>
 </Layout>
 
@@ -271,13 +405,27 @@ const githubData = await getGithubContributions();
 		top: 0;
 		left: 0;
 		right: 0;
-		padding: 1rem 1.5rem;
+		background: var(--bg-secondary);
+		border-bottom: 1px solid var(--border-medium);
+		z-index: 100;
+	}
+
+	.nav-inner {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 0.75rem 0;
+	}
+
+	.nav-top {
+		display: flex;
+		justify-content: center;
+	}
+
+	.nav-bottom {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background: var(--bg-paper);
-		z-index: 100;
-		font-size: 0.875rem;
 	}
 
 	.nav-left,
@@ -288,7 +436,8 @@ const githubData = await getGithubContributions();
 	}
 
 	.nav-separator {
-		color: var(--text-muted);
+		color: var(--text-tertiary);
+		font-size: 0.75rem;
 	}
 
 	/* Birthday Counter */
@@ -296,504 +445,576 @@ const githubData = await getGithubContributions();
 		position: fixed;
 		bottom: 1.5rem;
 		right: 1.5rem;
-		font-size: 0.75rem;
-		color: var(--text-muted);
-		background: var(--surface);
-		padding: 0.5rem 1rem;
-		border-radius: 20px;
+		font-size: 0.6875rem;
+		color: var(--text-tertiary);
+		background: var(--bg-secondary);
+		padding: 0.5rem 0.75rem;
 		border: 1px solid var(--border-subtle);
+		border-radius: 2px;
 	}
 
 	/* Hero */
 	.hero {
-		padding: 6rem 0 4rem;
-		position: relative;
+		padding: 8rem 0 6rem;
+		border-bottom: 1px solid var(--border-subtle);
 	}
 
-	.hero::before {
-		content: '';
-		position: absolute;
-		top: -50%;
-		right: -20%;
-		width: 400px;
-		height: 400px;
-		background: radial-gradient(circle, var(--accent-lavender-light) 0%, transparent 70%);
-		opacity: 0.15;
-		border-radius: 50%;
-		pointer-events: none;
+	.hero-layout {
+		display: grid;
+		grid-template-columns: 320px 1fr;
+		gap: 4rem;
+		align-items: start;
 	}
 
-	.hero-header {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		margin-bottom: 1.5rem;
-		position: relative;
+	.hero-left {
+		position: sticky;
+		top: 6rem;
+	}
+
+	.profile-section {
+		margin-bottom: 2rem;
 	}
 
 	.profile-pic {
-		width: 72px;
-		height: 72px;
+		width: 80px;
+		height: 80px;
 		border-radius: 50%;
 		object-fit: cover;
-		border: 2px solid var(--accent-gold);
-		box-shadow: 0 4px 12px rgba(201, 169, 98, 0.2);
+		border: 2px solid var(--border-medium);
 	}
 
-	.hero h1 {
-		margin: 0;
-		font-size: 2.25rem;
-		background: linear-gradient(135deg, var(--text-charcoal) 0%, var(--text-charcoal-light) 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+	.inspection-panel {
+		background: var(--bg-secondary);
+		border: 1px solid var(--border-subtle);
+		border-radius: 4px;
+		padding: 1.5rem;
+	}
+
+	.inspection-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.75rem 0;
+		border-bottom: 1px solid var(--border-subtle);
+	}
+
+	.inspection-row:last-child {
+		border-bottom: none;
+	}
+
+	.inspection-label {
+		font-size: 0.6875rem;
+		color: var(--text-tertiary);
+		letter-spacing: 0.05em;
+	}
+
+	.inspection-value {
+		font-size: 0.8125rem;
+		font-weight: 500;
+		color: var(--text-primary);
+	}
+
+	.status-building {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.status-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--status-green);
+		animation: pulse 2s ease-in-out infinite;
+	}
+
+	@keyframes pulse {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0.5; }
+	}
+
+	.hero-right {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.hero-statement {
+		padding: 2rem 0;
+		border-top: 1px solid var(--border-subtle);
 	}
 
 	.hero-intro {
 		font-size: 1.25rem;
 		margin-bottom: 0.5rem;
-		color: var(--text-charcoal);
-		position: relative;
+		color: var(--text-primary);
+		line-height: 1.4;
 	}
 
-	.hero-role {
-		font-size: 1rem;
-		color: var(--text-muted);
-		margin-bottom: 1.5rem;
-		position: relative;
-	}
-
-	/* Skills */
-	.skills {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-		margin-bottom: 1.5rem;
-	}
-
-	.skill-icon {
-		font-size: 1.5rem;
-		cursor: default;
-		transition: transform 0.3s ease, filter 0.3s ease;
-		filter: grayscale(30%);
-	}
-
-	.skill-icon:hover {
-		transform: scale(1.2) rotate(5deg);
-		filter: grayscale(0%);
-	}
-
-	/* Live Details */
-	.live-details {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		margin-bottom: 2rem;
-		font-size: 0.75rem;
-		color: var(--text-muted);
-	}
-
-	.live-item {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.live-icon {
-		font-size: 0.875rem;
-	}
-
-	.live-text a {
-		color: var(--accent-lavender);
-	}
-
-	/* Contexta Card */
-	.contexta-card {
-		padding: 1.5rem;
-		background: linear-gradient(135deg, var(--surface) 0%, var(--surface-subtle) 100%);
-		border: 1px solid var(--accent-gold);
-		border-radius: 12px;
-		margin-bottom: 2rem;
-		position: relative;
+	.current-system {
+		background: var(--bg-secondary);
+		border: 1px solid var(--border-medium);
+		border-radius: 4px;
 		overflow: hidden;
 	}
 
-	.contexta-card::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 100px;
-		height: 100px;
-		background: radial-gradient(circle, var(--accent-gold-light) 0%, transparent 70%);
-		opacity: 0.1;
-		border-radius: 50%;
+	.system-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.75rem 1rem;
+		background: var(--bg-tertiary);
+		border-bottom: 1px solid var(--border-subtle);
 	}
 
-	.contexta-label {
-		font-size: 0.75rem;
-		color: var(--text-muted);
-		margin-bottom: 0.25rem;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
+	.status-indicator {
+		font-size: 0.6875rem;
 	}
 
-	.contexta-name {
-		font-size: 1.5rem;
-		margin-bottom: 0.25rem;
-		color: var(--accent-gold);
-		position: relative;
+	.status-building {
+		color: var(--status-green);
 	}
 
-	.contexta-role {
-		font-size: 0.875rem;
-		color: var(--text-muted);
+	.system-body {
+		padding: 1.5rem;
+	}
+
+	.system-body h3 {
+		font-size: 1.25rem;
 		margin-bottom: 0.5rem;
 	}
 
-	.contexta-desc {
-		font-size: 0.9375rem;
-		margin: 0;
-		position: relative;
+	.system-body p {
+		font-size: 0.875rem;
+		margin-bottom: 1rem;
 	}
+
+	.system-meta {
+		display: flex;
+		gap: 1rem;
+		font-size: 0.75rem;
+		color: var(--text-tertiary);
+	}
+
 
 	/* Projects */
 	.projects {
-		padding: 3rem 0;
-		position: relative;
+		padding: 6rem 0;
 	}
 
-	.projects h2 {
-		position: relative;
-		display: inline-block;
-	}
-
-	.projects h2::after {
-		content: '';
-		position: absolute;
-		bottom: -4px;
-		left: 0;
-		width: 40px;
-		height: 2px;
-		background: var(--accent-lavender);
-	}
-
-	.project-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	.projects-header {
+		display: flex;
+		align-items: baseline;
 		gap: 1rem;
-		margin-bottom: 1.5rem;
+		margin-bottom: 3rem;
+		border-bottom: 1px solid var(--border-subtle);
+		padding-bottom: 1rem;
 	}
 
-	.project-card {
-		background: var(--surface);
+	.projects-header h2 {
+		margin-bottom: 0;
+	}
+
+	.projects-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.project-panel {
+		background: var(--bg-secondary);
 		border: 1px solid var(--border-subtle);
-		border-radius: 12px;
+		border-radius: 4px;
 		overflow: hidden;
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		transition: border-color 0.2s ease;
 	}
 
-	.project-card:hover {
-		transform: translateY(-4px);
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+	.project-panel:hover {
+		border-color: var(--border-medium);
 	}
 
-	.project-image {
-		width: 100%;
-		height: 140px;
-		overflow: hidden;
-		background: var(--bg-paper-dark);
+	.project-primary {
+		border-color: var(--border-medium);
 	}
 
-	.project-image img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		transition: transform 0.3s ease;
+	.panel-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.75rem 1rem;
+		background: var(--bg-tertiary);
+		border-bottom: 1px solid var(--border-subtle);
 	}
 
-	.project-card:hover .project-image img {
-		transform: scale(1.05);
+	.panel-title {
+		display: flex;
+		align-items: baseline;
+		gap: 0.75rem;
 	}
 
-	.project-card h3 {
+	.panel-title span {
+		font-size: 0.6875rem;
+		color: var(--text-tertiary);
+	}
+
+	.panel-title h3 {
 		font-size: 1.125rem;
-		margin: 1rem 1rem 0.5rem;
+		margin-bottom: 0;
+	}
+
+	.panel-status {
+		font-size: 0.6875rem;
+	}
+
+	.status-building {
+		color: var(--status-green);
+	}
+
+	.panel-body {
+		padding: 1.5rem;
+	}
+
+	.panel-grid {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 2rem;
+	}
+
+	.panel-main {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
 	}
 
 	.project-desc {
-		font-size: 0.875rem;
-		color: var(--text-muted);
-		margin: 0 1rem 0.75rem;
+		font-size: 0.9375rem;
+		color: var(--text-secondary);
+		margin: 0;
 	}
 
-	.project-stack {
+	.panel-meta {
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: column;
 		gap: 0.5rem;
-		margin: 0 1rem 0.75rem;
 	}
 
-	.stack-item {
-		font-size: 0.75rem;
-		padding: 0.25rem 0.5rem;
-		background: var(--surface-subtle);
-		border-radius: 4px;
-		color: var(--text-muted);
-	}
-
-	.project-links {
+	.meta-row {
 		display: flex;
-		gap: 0.75rem;
-		margin: 0 1rem 1rem;
+		gap: 1rem;
 	}
 
-	.project-link {
-		font-size: 0.75rem;
-		color: var(--accent-lavender);
+	.meta-row span:first-child {
+		color: var(--text-tertiary);
+		min-width: 60px;
+	}
+
+	.panel-actions {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		align-self: start;
 	}
 
 	.see-more {
 		display: inline-block;
-		font-size: 0.875rem;
-		color: var(--accent-lavender);
+		margin-top: 2rem;
 	}
 
 	/* Experience */
 	.experience {
-		padding: 3rem 0;
+		padding: 6rem 0;
 	}
 
-	.experience-list {
+	.experience-header {
+		display: flex;
+		align-items: baseline;
+		gap: 1rem;
+		margin-bottom: 3rem;
+		border-bottom: 1px solid var(--border-subtle);
+		padding-bottom: 1rem;
+	}
+
+	.experience-header h2 {
+		margin-bottom: 0;
+	}
+
+	.experience-timeline {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
-		margin-bottom: 1rem;
+		gap: 0;
 	}
 
-	.experience-item {
-		padding-bottom: 1rem;
-		border-bottom: 1px solid var(--border-light);
+	.timeline-entry {
+		display: grid;
+		grid-template-columns: 100px 1fr;
+		gap: 2rem;
+		padding: 2rem 0;
+		border-bottom: 1px solid var(--border-subtle);
 	}
 
-	.experience-item:last-child {
+	.timeline-entry:last-child {
 		border-bottom: none;
 	}
 
-	.experience-item h3 {
-		font-size: 1rem;
+	.timeline-marker {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--text-tertiary);
+		padding-top: 0.25rem;
+	}
+
+	.timeline-content {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.timeline-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+	}
+
+	.timeline-header h3 {
+		font-size: 1.125rem;
+		margin-bottom: 0;
+	}
+
+	.timeline-header span {
+		font-size: 0.6875rem;
+	}
+
+	.timeline-content > p {
 		margin-bottom: 0.25rem;
 	}
 
-	.experience-role {
+	.timeline-desc {
 		font-size: 0.875rem;
-		color: var(--text-muted);
-		margin-bottom: 0.25rem;
-	}
-
-	.experience-desc {
-		font-size: 0.875rem;
-		color: var(--text-muted);
+		color: var(--text-secondary);
+		margin: 0;
 	}
 
 	/* Contact */
 	.contact {
-		padding: 3rem 0;
-		background: linear-gradient(135deg, var(--surface-subtle) 0%, var(--bg-paper-dark) 100%);
-		border-radius: 12px;
-		text-align: center;
-		position: relative;
+		padding: 6rem 0;
+	}
+
+	.contact-panel {
+		background: var(--bg-secondary);
+		border: 1px solid var(--border-medium);
+		border-radius: 4px;
 		overflow: hidden;
+		max-width: 600px;
+		margin: 0 auto;
 	}
 
-	.contact::before {
-		content: '';
-		position: absolute;
-		top: -50%;
-		left: -50%;
-		width: 200%;
-		height: 200%;
-		background: radial-gradient(circle, var(--accent-lavender-light) 0%, transparent 50%);
-		opacity: 0.05;
-		pointer-events: none;
+	.contact-panel .panel-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.75rem 1rem;
+		background: var(--bg-tertiary);
+		border-bottom: 1px solid var(--border-subtle);
 	}
 
-	.contact h2 {
+	.contact-panel .panel-body {
+		padding: 2rem;
+	}
+
+	.contact-panel h2 {
 		margin-bottom: 1rem;
-		position: relative;
 	}
 
 	.contact-desc {
 		font-size: 0.9375rem;
-		color: var(--text-muted);
-		margin-bottom: 1.5rem;
-		max-width: 500px;
-		margin-left: auto;
-		margin-right: auto;
-		position: relative;
+		color: var(--text-secondary);
+		margin-bottom: 2rem;
 	}
 
-	.cta-button {
+	.system-button {
 		display: inline-block;
-		padding: 0.875rem 2rem;
-		background: var(--accent-lavender);
-		color: white;
-		border-radius: 8px;
+		padding: 0.75rem 1.5rem;
+		background: var(--accent-blue);
+		color: var(--bg-primary);
+		border-radius: 2px;
 		font-size: 0.875rem;
-		transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-		position: relative;
+		transition: background 0.2s ease;
 	}
 
-	.cta-button:hover {
-		background: var(--accent-lavender-light);
-		color: var(--text-charcoal);
-		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(168, 152, 176, 0.3);
+	.system-button:hover {
+		background: var(--accent-blue-light);
 	}
 
 	/* Communities */
 	.communities {
-		padding: 3rem 0;
+		padding: 6rem 0;
+	}
+
+	.communities-header {
+		display: flex;
+		align-items: baseline;
+		gap: 1rem;
+		margin-bottom: 2rem;
+		border-bottom: 1px solid var(--border-subtle);
+		padding-bottom: 1rem;
+	}
+
+	.communities-header h2 {
+		margin-bottom: 0;
 	}
 
 	.community-list {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 0;
 	}
 
 	.community-item {
-		padding: 1.25rem;
-		background: var(--surface);
-		border: 1px solid var(--border-subtle);
-		border-radius: 12px;
-		transition: transform 0.3s ease, border-color 0.3s ease;
+		padding: 1.5rem 0;
+		border-bottom: 1px solid var(--border-subtle);
 	}
 
-	.community-item:hover {
-		transform: translateX(4px);
-		border-color: var(--accent-lavender);
+	.community-item:last-child {
+		border-bottom: none;
 	}
 
-	.community-item h3 {
+	.community-main h3 {
 		font-size: 1.125rem;
 		margin-bottom: 0.25rem;
 	}
 
-	.community-role {
-		font-size: 0.75rem;
-		color: var(--accent-lavender);
+	.community-main > p:first-of-type {
+		font-size: 0.8125rem;
+		color: var(--text-tertiary);
 		margin-bottom: 0.5rem;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
 	}
 
 	.community-desc {
 		font-size: 0.875rem;
-		color: var(--text-muted);
+		color: var(--text-secondary);
 		margin: 0;
 	}
 
 	/* Personal */
 	.personal {
-		padding: 3rem 0;
+		padding: 6rem 0;
 	}
 
-	.personal h2 {
-		position: relative;
-		display: inline-block;
-	}
-
-	.personal h2::after {
-		content: '';
-		position: absolute;
-		bottom: -4px;
-		left: 0;
-		width: 40px;
-		height: 2px;
-		background: var(--accent-gold);
-	}
-
-	.personal-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	.personal-header {
+		display: flex;
+		align-items: baseline;
 		gap: 1rem;
+		margin-bottom: 2rem;
+		border-bottom: 1px solid var(--border-subtle);
+		padding-bottom: 1rem;
+	}
+
+	.personal-header h2 {
+		margin-bottom: 0;
+	}
+
+	.personal-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
 	}
 
 	.personal-item {
-		padding: 1rem;
-		background: var(--surface);
-		border: 1px solid var(--border-subtle);
-		border-radius: 12px;
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		padding: 1.5rem 0;
+		border-bottom: 1px solid var(--border-subtle);
 	}
 
-	.personal-item:hover {
-		transform: translateY(-4px);
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+	.personal-item:last-child {
+		border-bottom: none;
 	}
 
-	.personal-img {
-		width: 100%;
-		height: 140px;
-		object-fit: cover;
-		border-radius: 8px;
-		margin-bottom: 0.75rem;
-		transition: transform 0.3s ease;
+	.personal-item p {
+		margin-bottom: 0.5rem;
 	}
 
-	.personal-item:hover .personal-img {
-		transform: scale(1.05);
-	}
-
-	.personal-caption,
-	.personal-text {
+	.personal-note {
 		font-size: 0.875rem;
-		color: var(--text-muted);
-		margin: 0;
+		color: var(--text-tertiary);
+		font-style: italic;
 	}
 
 	/* Footer */
 	.footer {
-		padding: 2rem 0;
-		text-align: center;
-		font-size: 0.75rem;
-		color: var(--text-muted);
-		border-top: 1px solid var(--border-light);
+		padding: 3rem 0;
+		border-top: 1px solid var(--border-subtle);
 	}
 
-	.footer a {
-		color: var(--accent-lavender);
+	.footer-inner {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.footer p {
+		font-size: 0.8125rem;
+		color: var(--text-tertiary);
+		margin: 0;
 	}
 
 	/* Responsive */
 	@media (max-width: 768px) {
-		.nav {
+		.nav-inner {
 			flex-direction: column;
+			gap: 0.75rem;
+			padding: 0.75rem 0;
+		}
+
+		.nav-left,
+		.nav-right {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.hero-layout {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.hero-left {
+			position: static;
+		}
+
+		.profile-pic {
+			width: 64px;
+			height: 64px;
+		}
+
+		.inspection-panel {
+			margin-bottom: 2rem;
+		}
+
+		.panel-grid {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		.panel-actions {
+			flex-direction: row;
+			gap: 1rem;
+		}
+
+		.timeline-entry {
+			grid-template-columns: 1fr;
 			gap: 0.5rem;
-			padding: 0.75rem 1rem;
 		}
 
-		.hero-header {
-			flex-direction: column;
-			text-align: center;
+		.timeline-marker {
+			padding-top: 0;
 		}
 
-		.hero h1 {
-			font-size: 1.75rem;
-		}
-
-		.project-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.personal-grid {
-			grid-template-columns: 1fr;
+		.contact-panel {
+			max-width: 100%;
 		}
 
 		.birthday-counter {
 			bottom: 1rem;
 			right: 1rem;
+			font-size: 0.625rem;
 		}
 	}
 </style>

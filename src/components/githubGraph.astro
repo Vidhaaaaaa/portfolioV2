@@ -13,73 +13,205 @@ interface Props {
 }
 
 const { data } = Astro.props;
+
+function getLevel(count: number) {
+  if (count === 0) return 0;
+  if (count <= 2) return 1;
+  if (count <= 5) return 2;
+  if (count <= 9) return 3;
+  return 4;
+}
+
+function formatDate(date: string) {
+  return new Date(`${date}T00:00:00`).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
 ---
 
-<pre>
-    <div class="github-graph">
-    {data.weeks.map((week) => (
-        <div class="github-week">
-        {week.contributionDays.map((day) => {
-            let level = 0;
+<div class="github-activity">
+  <div class="github-header">
+    <div>
+      <p class="github-label">github activity</p>
+      <p class="github-total">
+        {data.totalContributions.toLocaleString()} contributions
+      </p>
+    </div>
+  </div>
 
-            if (day.contributionCount >= 10) {
-            level = 4;
-            } else if (day.contributionCount >= 6) {
-            level = 3;
-            } else if (day.contributionCount >= 3) {
-            level = 2;
-            } else if (day.contributionCount >= 1) {
-            level = 1;
-            }
+  <div class="calendar-wrapper">
+    <div class="weekday-labels" aria-hidden="true">
+      <span></span>
+      <span>Mon</span>
+      <span></span>
+      <span>Wed</span>
+      <span></span>
+      <span>Fri</span>
+      <span></span>
+    </div>
+
+    <div class="calendar">
+      {data.weeks.map((week) => (
+        <div class="github-week">
+          {week.contributionDays.map((day) => {
+            const level = getLevel(day.contributionCount);
 
             return (
-            <div
+              <div
                 class={`github-day github-level-${level}`}
-                title={`${day.date}: ${day.contributionCount} contributions`}
-            ></div>
+                title={`${formatDate(day.date)} · ${day.contributionCount} contribution${day.contributionCount === 1 ? "" : "s"}`}
+                aria-label={`${formatDate(day.date)}: ${day.contributionCount} contributions`}
+              ></div>
             );
-        })}
+          })}
         </div>
-    ))}
+      ))}
     </div>
-</pre>
+  </div>
+
+  <div class="github-legend">
+    <span>less</span>
+    <span class="legend-day github-level-0"></span>
+    <span class="legend-day github-level-1"></span>
+    <span class="legend-day github-level-2"></span>
+    <span class="legend-day github-level-3"></span>
+    <span class="legend-day github-level-4"></span>
+    <span>more</span>
+  </div>
+</div>
 
 <style>
-    .github-graph {
-    display: flex;
-    gap: 4px;
-    }
+  .github-activity {
+    width: 100%;
+    max-width: 350px;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+  }
 
-    .github-week {
+  .github-header {
+    margin-bottom: 0.75rem;
+  }
+
+  .github-label {
+    margin: 0;
+    font-size: 0.625rem;
+    color: var(--text-tertiary, #606060);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .github-total {
+    margin: 0.25rem 0 0;
+    font-size: 0.6875rem;
+    color: var(--text-secondary, #a0a0a0);
+  }
+
+  .calendar-wrapper {
+    display: flex;
+    gap: 0.4rem;
+    overflow-x: auto;
+    padding-bottom: 0.3rem;
+  }
+
+  .weekday-labels {
+    flex: 0 0 28px;
+    display: grid;
+    grid-template-rows: repeat(7, 11px);
+    gap: 3px;
+    padding-top: 1.2rem;
+  }
+
+  .weekday-labels span {
+    font-size: 0.5rem;
+    line-height: 11px;
+    color: var(--text-tertiary, #606060);
+  }
+
+  .calendar {
+    display: flex;
+    gap: 3px;
+    min-width: max-content;
+  }
+
+  .github-week {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    }
+    gap: 3px;
+  }
 
-    .github-day {
+  .github-day {
     width: 11px;
     height: 11px;
+    flex: 0 0 11px;
     border-radius: 2px;
-    flex-shrink: 0;
-    }
+    transition:
+      transform 120ms ease,
+      box-shadow 120ms ease;
+  }
 
-    .github-level-0 {
-    background: #eee8dc;
-    }
+  .github-day:hover {
+    transform: scale(1.35);
+    box-shadow: 0 0 0 2px var(--bg-primary, #0a0a0a);
+    cursor: pointer;
+  }
 
-    .github-level-1 {
-    background: #d8c9df;
-    }
+  .github-level-0 {
+    background: #2a2a2a;
+  }
 
-    .github-level-2 {
-    background: #b9a1c4;
-    }
+  .github-level-1 {
+    background: #3a3a3a;
+  }
 
-    .github-level-3 {
-    background: #9476a2;
-    }
+  .github-level-2 {
+    background: #4a4a4a;
+  }
 
-    .github-level-4 {
-    background: #6f527e;
-    }
+  .github-level-3 {
+    background: #5a5a5a;
+  }
+
+  .github-level-4 {
+    background: var(--accent-blue, #3b82f6);
+  }
+
+  .github-legend {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-top: 0.5rem;
+    font-size: 0.5625rem;
+    color: var(--text-tertiary, #606060);
+  }
+
+  .legend-day {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+
+@media (max-width: 600px) {
+  .github-day {
+    width: 10px;
+    height: 10px;
+    flex-basis: 10px;
+  }
+
+  .github-week {
+    gap: 3px;
+  }
+
+  .calendar {
+    gap: 3px;
+  }
+
+  .weekday-labels {
+    grid-template-rows: repeat(7, 10px);
+    gap: 3px;
+  }
+}
 </style>
