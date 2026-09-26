@@ -1,5 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import GithubGraph from "../components/githubGraph.astro";
+
+import { getGithubContributions } from "../lib/github";
+
+const githubData = await getGithubContributions();
 ---
 
 <Layout title="vidha">
@@ -15,281 +20,248 @@ import Layout from '../layouts/Layout.astro';
 			<a href="mailto:hello@vidha.com">email</a>
 		</div>
 		<div class="nav-right">
-			<a href="#work-with-me">work with me →</a>
+			<a href="#contact">work with me →</a>
 			<span class="nav-separator">·</span>
-			<a href="#say-hi">just say hi →</a>
+			<a href="mailto:hello@vidha.com">just say hi →</a>
 		</div>
 	</nav>
 
 	<!-- Birthday Counter -->
 	<div class="birthday-counter">
-		<span id="days-until">20</span> · <span id="days-count">[dynamic]</span> days until 21
+		<span id="days-count">[dynamic]</span> till i turn 21
 	</div>
 
 	<div class="container">
 		<!-- Hero -->
 		<section class="hero">
-			<h1>hi, i'm vidha, 20.</h1>
-			<p class="hero-subtitle">full-stack developer, founder & product builder · jaipur, india</p>
-			<p class="hero-role">founder & ceo · contexta</p>
-			<p class="hero-intro">i build and ship things on the internet.</p>
-			<p class="hero-intro">usually something i probably didn't need to build.</p>
-			<p class="hero-currently">currently → building contexta</p>
+
+			<GithubGraph data={githubData} />
 			
-			<!-- Profile Picture -->
-			<div class="profile-pic hover-lift">
-				<img src="/images/profile.jpg" alt="vidha" />
+			<div class="hero-header">
+				<img src="../src/images/pfp.jpeg" alt="vidha" class="profile-pic" />
+				<h1>hi, i'm vidha, 20.</h1>
 			</div>
 
-			<!-- Handwritten Notes -->
-			<div class="handwritten-notes">
-				<span class="handwritten note-1 hover-wiggle">life is kind of a sidequest.</span>
-				<span class="handwritten note-2 hover-wiggle">randomly ships things at 2am.</span>
-			</div>
-		</section>
+			<p class="handwritten hero-intro">i build and ship things on the internet.</p>
+			<p class="handwritten hero-intro">usually something i probably didn't need to build.</p>
 
-		<!-- Currently -->
-		<section class="currently">
-			<h2>currently</h2>
-			<p class="section-caption">show that the site is alive and that i'm actually doing things online.</p>
-			
-			<div class="currently-grid">
-				<div class="currently-item">
-					<span class="currently-label">listening →</span>
-					<div class="spotify-track">
-						<img src="/images/spotify-artwork.jpg" alt="Spotify artwork" class="spotify-artwork" />
-						<span class="track-name">current Spotify track</span>
-					</div>
-				</div>
-				
-				<div class="currently-item">
-					<span class="currently-label">lately on x →</span>
-					<div class="x-posts">
-						<a href="#" class="x-post">recent post 1</a>
-						<a href="#" class="x-post">recent post 2</a>
-					</div>
-				</div>
-				
-				<div class="currently-item">
-					<span class="currently-label">building →</span>
-					<a href="#contexta" class="building-link">contexta</a>
-				</div>
-				
-				<div class="currently-item">
-					<span class="currently-label">around the internet →</span>
-					<a href="https://github.com/vidha" target="_blank" rel="noopener" class="github-link">github activity</a>
-				</div>
-			</div>
-			
-			<p class="currently-caption">i'm usually somewhere online doing something. come say hello!</p>
-		</section>
+			<p class="hero-role">full-stack developer · founder · product builder</p>
 
-		<!-- Skills -->
-		<section class="skills">
-			<h2>things i build with</h2>
-			
-			<div class="skill-category">
-				<h3>languages</h3>
-				<p>python · java · c · sql · matlab · move</p>
+			<!-- Skills -->
+			<div class="skills">
+				<span class="skill-icon" title="Python">🐍</span>
+				<span class="skill-icon" title="FastAPI">⚡</span>
+				<span class="skill-icon" title="PostgreSQL">🐘</span>
+				<span class="skill-icon" title="Git">📦</span>
+				<span class="skill-icon" title="Docker">🐳</span>
+				<span class="skill-icon" title="React">⚛️</span>
+				<span class="skill-icon" title="C">©️</span>
+				<span class="skill-icon" title="Java">☕</span>
 			</div>
-			
-			<div class="skill-category">
-				<h3>backend</h3>
-				<p>fastapi · flask · rest apis</p>
-			</div>
-			
-			<div class="skill-category">
-				<h3>frontend</h3>
-				<p>react · vite · html · css</p>
-			</div>
-			
-			<div class="skill-category">
-				<h3>data / ml</h3>
-				<p>pandas · scikit-learn · xgboost · catboost</p>
-			</div>
-			
-			<div class="skill-category">
-				<h3>databases</h3>
-				<p>postgresql · mysql · sqlite · supabase</p>
-			</div>
-			
-			<div class="skill-category">
-				<h3>tools / other</h3>
-				<p>git · github · docker · ollama · tesseract · webrtc · ipfs</p>
-			</div>
-			
-			<p class="skills-note handwritten">i love python an unreasonable amount.</p>
-			<p class="skills-note handwritten">my toolbox changes. the urge to build things doesn't.</p>
-			
-			<a href="/stack" class="see-more">see my stack →</a>
-		</section>
 
-		<!-- Contexta -->
-		<section class="contexta" id="contexta">
-			<h2>currently building</h2>
-			<h3 class="project-title">contexta</h3>
-			<p class="project-role">founder & ceo</p>
-			<p class="project-description">codebases remember what was written.</p>
-			<p class="project-description">they don't really remember why.</p>
-			<p class="project-description">contexta is a tool that gives codebases a layer of memory — carrying decisions, history, and context alongside the code itself.</p>
-			
-			<p class="handwritten contexta-note">this is currently taking up an unreasonable amount of my brain.</p>
-			
-			<a href="#" class="project-link">building in public →</a>
-			<p class="project-status">in progress · 2026</p>
-			
-			<!-- Pre-incubation Photo -->
-			<div class="certificate-photo">
-				<img src="/images/pre-incubation.jpg" alt="Pre-incubation certificate" />
+			<!-- Tiny Live Details -->
+			<div class="live-details">
+				<div class="live-item">
+					<span class="live-icon">♫</span>
+					<span class="live-text">currently listening — <a href="#">song · artist</a></span>
+				</div>
+				<div class="live-item">
+					<span class="live-icon">𝕏</span>
+					<span class="live-text">latest — <a href="#" target="_blank" rel="noopener">short preview</a></span>
+				</div>
 			</div>
-			<p class="photo-caption">got pre-incubated recently. twice.</p>
+
+			<!-- Contexta -->
+			<div class="contexta-card">
+				<p class="contexta-label">currently building</p>
+				<h3 class="contexta-name">contexta</h3>
+				<p class="contexta-role">founder & ceo · 2026</p>
+				<p class="contexta-desc">a memory layer for codebases.</p>
+			</div>
 		</section>
 
 		<!-- Projects -->
 		<section class="projects">
-			<h2>things i've shipped</h2>
-			<p class="projects-intro">i like taking things from "hmm, what if…" to "oh, it's actually running."</p>
+			<h2>things i've built</h2>
 			
-			<div class="projects-list">
-				<div class="project-item hover-lift">
+			<div class="project-grid">
+				<div class="project-card">
+					<div class="project-image">
+						<img src="/images/contexta-preview.jpg" alt="contexta" />
+					</div>
 					<h3>contexta</h3>
-					<p>a conceptual memory layer for codebases</p>
+					<p class="project-desc">a conceptual memory layer for codebases</p>
+					<div class="project-stack">
+						<span class="stack-item">python</span>
+						<span class="stack-item">fastapi</span>
+						<span class="stack-item">postgresql</span>
+					</div>
+					<div class="project-links">
+						<a href="#" class="project-link">live</a>
+						<a href="https://github.com/vidha/contexta" target="_blank" rel="noopener" class="project-link">github</a>
+					</div>
 				</div>
-				
-				<div class="project-item hover-lift">
-					<h3>skippit</h3>
-					<p>async interviews for startups</p>
-				</div>
-				
-				<div class="project-item hover-lift">
-					<h3>ditto</h3>
-					<p>screenshots → useful information</p>
-				</div>
-				
-				<div class="project-item hover-lift">
-					<h3>snaptunnel</h3>
-					<p>peer-to-peer file sharing</p>
-				</div>
-				
-				<div class="project-item hover-lift">
-					<h3>ticketledger</h3>
-					<p>decentralized ticketing on aptos</p>
-				</div>
-				
-				<div class="project-item hover-lift">
-					<h3>accelerate</h3>
-					<p>builder community</p>
-				</div>
-			</div>
-			
-			<a href="/work" class="see-more">see everything i've built →</a>
-		</section>
 
-		<!-- Contributions -->
-		<section class="contributions">
-			<h2>contributions</h2>
-			<div class="github-graph">
-				<img src="/images/github-graph.png" alt="GitHub contribution graph" />
+				<div class="project-card">
+					<div class="project-image">
+						<img src="/images/skippit-preview.jpg" alt="skippit" />
+					</div>
+					<h3>skippit</h3>
+					<p class="project-desc">async interviews for startups</p>
+					<div class="project-stack">
+						<span class="stack-item">python</span>
+						<span class="stack-item">flask</span>
+						<span class="stack-item">webrtc</span>
+					</div>
+					<div class="project-links">
+						<a href="#" class="project-link">live</a>
+						<a href="https://github.com/vidha/skippit" target="_blank" rel="noopener" class="project-link">github</a>
+					</div>
+				</div>
+
+				<div class="project-card">
+					<div class="project-image">
+						<img src="/images/ditto-preview.jpg" alt="ditto" />
+					</div>
+					<h3>ditto</h3>
+					<p class="project-desc">screenshots → useful information</p>
+					<div class="project-stack">
+						<span class="stack-item">python</span>
+						<span class="stack-item">fastapi</span>
+						<span class="stack-item">tesseract</span>
+					</div>
+					<div class="project-links">
+						<a href="#" class="project-link">live</a>
+						<a href="https://github.com/vidha/ditto" target="_blank" rel="noopener" class="project-link">github</a>
+					</div>
+				</div>
+
+				<div class="project-card">
+					<div class="project-image">
+						<img src="/images/snaptunnel-preview.jpg" alt="snaptunnel" />
+					</div>
+					<h3>snaptunnel</h3>
+					<p class="project-desc">peer-to-peer file sharing</p>
+					<div class="project-stack">
+						<span class="stack-item">javascript</span>
+						<span class="stack-item">webtorrent</span>
+						<span class="stack-item">webrtc</span>
+					</div>
+					<div class="project-links">
+						<a href="#" class="project-link">live</a>
+						<a href="https://github.com/vidha/snaptunnel" target="_blank" rel="noopener" class="project-link">github</a>
+					</div>
+				</div>
+
+				<div class="project-card">
+					<div class="project-image">
+						<img src="/images/ticketledger-preview.jpg" alt="ticketledger" />
+					</div>
+					<h3>ticketledger</h3>
+					<p class="project-desc">decentralized ticketing on aptos</p>
+					<div class="project-stack">
+						<span class="stack-item">move</span>
+						<span class="stack-item">aptos</span>
+						<span class="stack-item">typescript</span>
+					</div>
+					<div class="project-links">
+						<a href="#" class="project-link">live</a>
+						<a href="https://github.com/vidha/ticketledger" target="_blank" rel="noopener" class="project-link">github</a>
+					</div>
+				</div>
+
+				<div class="project-card">
+					<div class="project-image">
+						<img src="/images/accelerate-preview.jpg" alt="accelerate" />
+					</div>
+					<h3>accelerate</h3>
+					<p class="project-desc">builder community</p>
+					<div class="project-stack">
+						<span class="stack-item">community</span>
+						<span class="stack-item">open source</span>
+					</div>
+					<div class="project-links">
+						<a href="#" class="project-link">learn more</a>
+					</div>
+				</div>
 			</div>
-			<p class="contributions-caption">slowly filling this thing up.</p>
-			<a href="https://github.com/vidha" target="_blank" rel="noopener" class="see-more">see my github →</a>
+
+			<a href="/work" class="see-more">see everything i've built →</a>
 		</section>
 
 		<!-- Experience -->
 		<section class="experience">
-			<h2>things i've worked on</h2>
+			<h2>experience</h2>
 			
 			<div class="experience-list">
 				<div class="experience-item">
 					<h3>contexta</h3>
 					<p class="experience-role">founder & ceo · may 2026–present</p>
 				</div>
-				
-				<!-- Add more experience items as needed -->
+
 				<div class="experience-item">
 					<h3>[company name]</h3>
 					<p class="experience-role">[role] · [year/date]</p>
-					<p class="experience-description">1–2 lines describing what you actually worked on</p>
+					<p class="experience-desc">1–2 lines describing what you actually worked on</p>
+				</div>
+			</div>
+
+			<a href="/work" class="see-more">see full experience →</a>
+		</section>
+
+		<!-- Contact -->
+		<section class="contact" id="contact">
+			<h2>want to build something?</h2>
+			<p class="contact-desc">i build web apps, backend systems, APIs, internal tools, MVPs and automations for startups and other people building things.</p>
+			<a href="mailto:hello@vidha.com" class="cta-button">let's talk →</a>
+		</section>
+
+		<!-- Communities -->
+		<section class="communities">
+			<h2>communities</h2>
+			
+			<div class="community-list">
+				<div class="community-item">
+					<h3>eis</h3>
+					<p class="community-role">general secretary</p>
+					<p class="community-desc">building entrepreneurship and innovation at university</p>
+				</div>
+
+				<div class="community-item">
+					<h3>accelerate</h3>
+					<p class="community-role">founder</p>
+					<p class="community-desc">builder community around open source and collaboration</p>
 				</div>
 			</div>
 		</section>
 
-		<!-- EIS -->
-		<section class="eis">
-			<h2>i've been building with people too.</h2>
-			<p class="eis-intro">entrepreneur & innovation society, at my university</p>
-			<p class="eis-description">i'm an entrepreneur who loves startups, and i'm currently the general secretary of eis, working with students to build an entrepreneurship and innovation community at uni — teams, events, initiatives, and all the chaos that comes with making a student community work.</p>
-			<p class="handwritten eis-note">apparently i enjoy building communities almost as much as building products.</p>
+		<!-- Personal -->
+		<section class="personal">
+			<h2>beyond code</h2>
 			
-			<div class="eis-photo">
-				<img src="/images/eis-team.jpg" alt="EIS team" />
-			</div>
-		</section>
-
-		<!-- Accelerate -->
-		<section class="accelerate">
-			<h2>i started a community, too.</h2>
-			<h3 class="community-title">accelerate</h3>
-			<p class="community-description">a builder community i started at muj around open source, collaboration, technical learning, and actually making things.</p>
-			<p class="community-philosophy">philosophy: don't compete to prove you're a builder. build.</p>
-			<p class="handwritten accelerate-note">this one started because i wanted a different kind of community.</p>
-			<a href="#" class="see-more">learn about accelerate →</a>
-			<p class="website-note">this website you're currently viewing is open source too, btw.</p>
-			<a href="https://github.com/vidha/portfolio" target="_blank" rel="noopener" class="see-more">see the code →</a>
-		</section>
-
-		<!-- A Little Bit of My Life -->
-		<section class="life">
-			<h2>a little bit of my life</h2>
-			<p class="life-intro">okay, enough developer stuff.</p>
-			<p class="life-opening">there's a person behind all these repositories.</p>
-			
-			<div class="life-section">
-				<h3>guitar era</h3>
-				<div class="guitar-video">
-					<img src="/gifs/guitar.gif" alt="Playing guitar" />
+			<div class="personal-grid">
+				<div class="personal-item">
+					<img src="/gifs/guitar.gif" alt="Guitar" class="personal-img" />
+					<p class="personal-caption">learning guitar since december 2025</p>
 				</div>
-				<p class="life-caption">decided i should learn guitar in december 2025. here's me playing something</p>
-			</div>
-			
-			<div class="life-section">
-				<h3>a book i loved</h3>
-				<p class="book-quote">"i may die young, but at least i'll die smart." — alaska young, looking for alaska by john green</p>
-			</div>
-			
-			<div class="life-section">
-				<h3>little pieces of life</h3>
-				<div class="life-photos">
-					<img src="/images/friends.jpg" alt="Friends" />
-					<img src="/images/university.jpg" alt="University" />
-					<img src="/images/trips.jpg" alt="Trips" />
+				
+				<div class="personal-item">
+					<img src="/images/friends.jpg" alt="Friends" class="personal-img" />
+					<p class="personal-caption">friends · university · life</p>
 				</div>
-				<p class="life-caption">not everything needs to be a project.</p>
+				
+				<div class="personal-item">
+					<p class="personal-text">music · video editing · reading · random experiments · cats</p>
+					<p class="handwritten">and approximately 47 unfinished side projects.</p>
+				</div>
 			</div>
-			
-			<div class="life-section">
-				<h3>random sidequests</h3>
-				<p>music · video editing · guitar · reading · random experiments · cats</p>
-				<p class="handwritten">and approximately 47 unfinished side projects.</p>
-			</div>
-		</section>
-
-		<!-- Work With Me -->
-		<section class="work-with-me" id="work-with-me">
-			<h2>want something built?</h2>
-			<p class="work-intro">i also build for other people and love working with startups.</p>
-			<p class="work-description">mvps, web apps, backend systems, apis, internal tools, automations — if you have something that needs turning from "what if?" into "it's live," let's talk.</p>
-			<p class="work-style">i like working closely with people, figuring things out together, and shipping things rather than letting them sit in development purgatory.</p>
-			<a href="mailto:hello@vidha.com" class="cta-button">let's build something →</a>
-		</section>
-
-		<!-- Say Hi -->
-		<section class="say-hi" id="say-hi">
-			<h2>you don't have to hire me to say hi.</h2>
-			<p class="hi-intro">if you found your way here because you liked something i built, want to talk about startups, music, books, cats, or some completely unrelated rabbit hole — come say hi.</p>
-			<a href="mailto:hello@vidha.com" class="cta-button">just say hi →</a>
 		</section>
 	</div>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<p> 2026 vidha · <a href="https://github.com/vidha/portfolio" target="_blank" rel="noopener">this site is open source</a></p>
+	</footer>
 </Layout>
 
 <style>
@@ -303,7 +275,7 @@ import Layout from '../layouts/Layout.astro';
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background: var(--bg-cream);
+		background: var(--bg-paper);
 		z-index: 100;
 		font-size: 0.875rem;
 	}
@@ -324,9 +296,9 @@ import Layout from '../layouts/Layout.astro';
 		position: fixed;
 		bottom: 1.5rem;
 		right: 1.5rem;
-		font-size: 0.875rem;
+		font-size: 0.75rem;
 		color: var(--text-muted);
-		background: var(--bg-cream);
+		background: var(--surface);
 		padding: 0.5rem 1rem;
 		border-radius: 20px;
 		border: 1px solid var(--border-subtle);
@@ -334,461 +306,530 @@ import Layout from '../layouts/Layout.astro';
 
 	/* Hero */
 	.hero {
-		padding-top: 6rem;
-		min-height: 80vh;
+		padding: 6rem 0 4rem;
+		position: relative;
+	}
+
+	.hero::before {
+		content: '';
+		position: absolute;
+		top: -50%;
+		right: -20%;
+		width: 400px;
+		height: 400px;
+		background: radial-gradient(circle, var(--accent-lavender-light) 0%, transparent 70%);
+		opacity: 0.15;
+		border-radius: 50%;
+		pointer-events: none;
+	}
+
+	.hero-header {
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-
-	.hero h1 {
-		margin-bottom: 1rem;
-	}
-
-	.hero-subtitle {
-		font-size: 1.125rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.hero-role {
-		font-size: 0.875rem;
-		color: var(--accent-lavender);
+		align-items: center;
+		gap: 1rem;
 		margin-bottom: 1.5rem;
-	}
-
-	.hero-intro {
-		font-size: 1rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.hero-currently {
-		font-size: 0.875rem;
-		color: var(--accent-lavender);
-		margin-top: 1rem;
+		position: relative;
 	}
 
 	.profile-pic {
-		width: 120px;
-		height: 120px;
+		width: 72px;
+		height: 72px;
 		border-radius: 50%;
-		overflow: hidden;
-		margin: 2rem 0;
-	}
-
-	.profile-pic img {
-		width: 100%;
-		height: 100%;
 		object-fit: cover;
+		border: 2px solid var(--accent-gold);
+		box-shadow: 0 4px 12px rgba(201, 169, 98, 0.2);
 	}
 
-	.handwritten-notes {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		margin-top: 1rem;
+	.hero h1 {
+		margin: 0;
+		font-size: 2.25rem;
+		background: linear-gradient(135deg, var(--text-charcoal) 0%, var(--text-charcoal-light) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
 	}
 
-	.note-1 {
+	.hero-intro {
+		font-size: 1.25rem;
+		margin-bottom: 0.5rem;
+		color: var(--text-charcoal);
 		position: relative;
-		left: 20px;
 	}
 
-	.note-2 {
+	.hero-role {
+		font-size: 1rem;
+		color: var(--text-muted);
+		margin-bottom: 1.5rem;
 		position: relative;
-		right: 20px;
-		text-align: right;
-	}
-
-	/* Currently */
-	.section-caption {
-		font-size: 0.875rem;
-		color: var(--text-muted);
-		margin-bottom: 2rem;
-	}
-
-	.currently-grid {
-		display: grid;
-		gap: 1.5rem;
-		margin-bottom: 2rem;
-	}
-
-	.currently-item {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.currently-label {
-		font-size: 0.875rem;
-		color: var(--accent-lavender);
-	}
-
-	.spotify-track {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-	}
-
-	.spotify-artwork {
-		width: 48px;
-		height: 48px;
-		border-radius: 4px;
-		object-fit: cover;
-	}
-
-	.x-posts {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.x-post {
-		font-size: 0.875rem;
-		color: var(--text-charcoal-light);
-	}
-
-	.building-link,
-	.github-link {
-		font-size: 0.875rem;
-		color: var(--text-charcoal-light);
-	}
-
-	.currently-caption {
-		font-size: 0.875rem;
-		color: var(--text-muted);
-		margin-top: 1rem;
 	}
 
 	/* Skills */
-	.skill-category {
+	.skills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
 		margin-bottom: 1.5rem;
 	}
 
-	.skill-category h3 {
-		font-size: 1rem;
-		margin-bottom: 0.5rem;
+	.skill-icon {
+		font-size: 1.5rem;
+		cursor: default;
+		transition: transform 0.3s ease, filter 0.3s ease;
+		filter: grayscale(30%);
+	}
+
+	.skill-icon:hover {
+		transform: scale(1.2) rotate(5deg);
+		filter: grayscale(0%);
+	}
+
+	/* Live Details */
+	.live-details {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-bottom: 2rem;
+		font-size: 0.75rem;
+		color: var(--text-muted);
+	}
+
+	.live-item {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.live-icon {
+		font-size: 0.875rem;
+	}
+
+	.live-text a {
 		color: var(--accent-lavender);
 	}
 
-	.skill-category p {
-		font-size: 0.9375rem;
+	/* Contexta Card */
+	.contexta-card {
+		padding: 1.5rem;
+		background: linear-gradient(135deg, var(--surface) 0%, var(--surface-subtle) 100%);
+		border: 1px solid var(--accent-gold);
+		border-radius: 12px;
+		margin-bottom: 2rem;
+		position: relative;
+		overflow: hidden;
 	}
 
-	.skills-note {
-		margin-top: 1.5rem;
+	.contexta-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100px;
+		height: 100px;
+		background: radial-gradient(circle, var(--accent-gold-light) 0%, transparent 70%);
+		opacity: 0.1;
+		border-radius: 50%;
+	}
+
+	.contexta-label {
+		font-size: 0.75rem;
+		color: var(--text-muted);
+		margin-bottom: 0.25rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.contexta-name {
+		font-size: 1.5rem;
+		margin-bottom: 0.25rem;
+		color: var(--accent-gold);
+		position: relative;
+	}
+
+	.contexta-role {
+		font-size: 0.875rem;
+		color: var(--text-muted);
 		margin-bottom: 0.5rem;
+	}
+
+	.contexta-desc {
+		font-size: 0.9375rem;
+		margin: 0;
+		position: relative;
+	}
+
+	/* Projects */
+	.projects {
+		padding: 3rem 0;
+		position: relative;
+	}
+
+	.projects h2 {
+		position: relative;
+		display: inline-block;
+	}
+
+	.projects h2::after {
+		content: '';
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		width: 40px;
+		height: 2px;
+		background: var(--accent-lavender);
+	}
+
+	.project-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.project-card {
+		background: var(--surface);
+		border: 1px solid var(--border-subtle);
+		border-radius: 12px;
+		overflow: hidden;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.project-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+	}
+
+	.project-image {
+		width: 100%;
+		height: 140px;
+		overflow: hidden;
+		background: var(--bg-paper-dark);
+	}
+
+	.project-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.3s ease;
+	}
+
+	.project-card:hover .project-image img {
+		transform: scale(1.05);
+	}
+
+	.project-card h3 {
+		font-size: 1.125rem;
+		margin: 1rem 1rem 0.5rem;
+	}
+
+	.project-desc {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+		margin: 0 1rem 0.75rem;
+	}
+
+	.project-stack {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin: 0 1rem 0.75rem;
+	}
+
+	.stack-item {
+		font-size: 0.75rem;
+		padding: 0.25rem 0.5rem;
+		background: var(--surface-subtle);
+		border-radius: 4px;
+		color: var(--text-muted);
+	}
+
+	.project-links {
+		display: flex;
+		gap: 0.75rem;
+		margin: 0 1rem 1rem;
+	}
+
+	.project-link {
+		font-size: 0.75rem;
+		color: var(--accent-lavender);
 	}
 
 	.see-more {
 		display: inline-block;
-		margin-top: 1rem;
 		font-size: 0.875rem;
 		color: var(--accent-lavender);
-	}
-
-	/* Contexta */
-	.project-title {
-		font-size: 1.5rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.project-role {
-		font-size: 0.875rem;
-		color: var(--accent-lavender);
-		margin-bottom: 1rem;
-	}
-
-	.project-description {
-		font-size: 1rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.contexta-note {
-		margin: 1.5rem 0;
-	}
-
-	.project-link {
-		display: inline-block;
-		margin-right: 1rem;
-		font-size: 0.875rem;
-		color: var(--accent-lavender);
-	}
-
-	.project-status {
-		display: inline-block;
-		font-size: 0.875rem;
-		color: var(--text-muted);
-	}
-
-	.certificate-photo {
-		margin: 2rem 0;
-		max-width: 300px;
-	}
-
-	.certificate-photo img {
-		width: 100%;
-		border-radius: 4px;
-	}
-
-	.photo-caption {
-		font-size: 0.875rem;
-		color: var(--text-muted);
-	}
-
-	/* Projects */
-	.projects-intro {
-		margin-bottom: 2rem;
-	}
-
-	.projects-list {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-		margin-bottom: 1.5rem;
-	}
-
-	.project-item h3 {
-		font-size: 1.125rem;
-		margin-bottom: 0.25rem;
-	}
-
-	.project-item p {
-		font-size: 0.875rem;
-		color: var(--text-muted);
-	}
-
-	/* Contributions */
-	.github-graph {
-		margin: 1.5rem 0;
-		max-width: 100%;
-	}
-
-	.github-graph img {
-		width: 100%;
-		border-radius: 4px;
-	}
-
-	.contributions-caption {
-		font-size: 0.875rem;
-		color: var(--text-muted);
-		margin-bottom: 0.5rem;
 	}
 
 	/* Experience */
+	.experience {
+		padding: 3rem 0;
+	}
+
 	.experience-list {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.experience-item {
+		padding-bottom: 1rem;
+		border-bottom: 1px solid var(--border-light);
+	}
+
+	.experience-item:last-child {
+		border-bottom: none;
 	}
 
 	.experience-item h3 {
-		font-size: 1.125rem;
+		font-size: 1rem;
 		margin-bottom: 0.25rem;
 	}
 
 	.experience-role {
 		font-size: 0.875rem;
-		color: var(--accent-lavender);
-		margin-bottom: 0.5rem;
+		color: var(--text-muted);
+		margin-bottom: 0.25rem;
 	}
 
-	.experience-description {
+	.experience-desc {
 		font-size: 0.875rem;
 		color: var(--text-muted);
 	}
 
-	/* EIS */
-	.eis-intro {
-		font-size: 0.875rem;
-		color: var(--accent-lavender);
+	/* Contact */
+	.contact {
+		padding: 3rem 0;
+		background: linear-gradient(135deg, var(--surface-subtle) 0%, var(--bg-paper-dark) 100%);
+		border-radius: 12px;
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.contact::before {
+		content: '';
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
+		background: radial-gradient(circle, var(--accent-lavender-light) 0%, transparent 50%);
+		opacity: 0.05;
+		pointer-events: none;
+	}
+
+	.contact h2 {
 		margin-bottom: 1rem;
+		position: relative;
 	}
 
-	.eis-description {
+	.contact-desc {
 		font-size: 0.9375rem;
-		margin-bottom: 1rem;
-	}
-
-	.eis-note {
-		margin: 1rem 0;
-	}
-
-	.eis-photo {
-		margin: 1.5rem 0;
-		max-width: 400px;
-	}
-
-	.eis-photo img {
-		width: 100%;
-		border-radius: 4px;
-	}
-
-	/* Accelerate */
-	.community-title {
-		font-size: 1.25rem;
-		margin-bottom: 0.75rem;
-	}
-
-	.community-description {
-		font-size: 0.9375rem;
-		margin-bottom: 0.75rem;
-	}
-
-	.community-philosophy {
-		font-size: 0.875rem;
 		color: var(--text-muted);
-		font-style: italic;
-		margin-bottom: 1rem;
-	}
-
-	.accelerate-note {
-		margin: 1rem 0;
-	}
-
-	.website-note {
-		font-size: 0.875rem;
-		color: var(--text-muted);
-		margin-top: 1rem;
-	}
-
-	/* Life */
-	.life-intro {
-		font-size: 0.875rem;
-		color: var(--text-muted);
-		margin-bottom: 0.5rem;
-	}
-
-	.life-opening {
-		font-size: 1rem;
-		margin-bottom: 2rem;
-	}
-
-	.life-section {
-		margin-bottom: 2rem;
-	}
-
-	.life-section h3 {
-		font-size: 1rem;
-		margin-bottom: 0.75rem;
-		color: var(--accent-lavender);
-	}
-
-	.guitar-video {
-		margin: 1rem 0;
-		max-width: 300px;
-	}
-
-	.guitar-video img {
-		width: 100%;
-		border-radius: 4px;
-	}
-
-	.book-quote {
-		font-size: 0.9375rem;
-		font-style: italic;
-		color: var(--text-charcoal-light);
-		padding: 1rem;
-		background: var(--bg-cream-dark);
-		border-radius: 4px;
-	}
-
-	.life-photos {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-		gap: 0.75rem;
-		margin: 1rem 0;
-	}
-
-	.life-photos img {
-		width: 100%;
-		height: 150px;
-		object-fit: cover;
-		border-radius: 4px;
-	}
-
-	.life-caption {
-		font-size: 0.875rem;
-		color: var(--text-muted);
-	}
-
-	/* Work With Me */
-	.work-intro {
-		font-size: 0.875rem;
-		color: var(--accent-lavender);
-		margin-bottom: 1rem;
-	}
-
-	.work-description,
-	.work-style {
-		font-size: 0.9375rem;
-		margin-bottom: 0.75rem;
+		margin-bottom: 1.5rem;
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
 	}
 
 	.cta-button {
 		display: inline-block;
-		margin-top: 1.5rem;
-		padding: 0.75rem 1.5rem;
+		padding: 0.875rem 2rem;
 		background: var(--accent-lavender);
 		color: white;
-		border-radius: 4px;
+		border-radius: 8px;
 		font-size: 0.875rem;
-		transition: background 0.2s ease, transform 0.2s ease;
+		transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+		position: relative;
 	}
 
 	.cta-button:hover {
 		background: var(--accent-lavender-light);
 		color: var(--text-charcoal);
 		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(168, 152, 176, 0.3);
 	}
 
-	/* Say Hi */
-	.hi-intro {
-		font-size: 0.9375rem;
-		margin-bottom: 1rem;
+	/* Communities */
+	.communities {
+		padding: 3rem 0;
+	}
+
+	.community-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.community-item {
+		padding: 1.25rem;
+		background: var(--surface);
+		border: 1px solid var(--border-subtle);
+		border-radius: 12px;
+		transition: transform 0.3s ease, border-color 0.3s ease;
+	}
+
+	.community-item:hover {
+		transform: translateX(4px);
+		border-color: var(--accent-lavender);
+	}
+
+	.community-item h3 {
+		font-size: 1.125rem;
+		margin-bottom: 0.25rem;
+	}
+
+	.community-role {
+		font-size: 0.75rem;
+		color: var(--accent-lavender);
+		margin-bottom: 0.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.community-desc {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+		margin: 0;
+	}
+
+	/* Personal */
+	.personal {
+		padding: 3rem 0;
+	}
+
+	.personal h2 {
+		position: relative;
+		display: inline-block;
+	}
+
+	.personal h2::after {
+		content: '';
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		width: 40px;
+		height: 2px;
+		background: var(--accent-gold);
+	}
+
+	.personal-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1rem;
+	}
+
+	.personal-item {
+		padding: 1rem;
+		background: var(--surface);
+		border: 1px solid var(--border-subtle);
+		border-radius: 12px;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.personal-item:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+	}
+
+	.personal-img {
+		width: 100%;
+		height: 140px;
+		object-fit: cover;
+		border-radius: 8px;
+		margin-bottom: 0.75rem;
+		transition: transform 0.3s ease;
+	}
+
+	.personal-item:hover .personal-img {
+		transform: scale(1.05);
+	}
+
+	.personal-caption,
+	.personal-text {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+		margin: 0;
+	}
+
+	/* Footer */
+	.footer {
+		padding: 2rem 0;
+		text-align: center;
+		font-size: 0.75rem;
+		color: var(--text-muted);
+		border-top: 1px solid var(--border-light);
+	}
+
+	.footer a {
+		color: var(--accent-lavender);
 	}
 
 	/* Responsive */
 	@media (max-width: 768px) {
 		.nav {
 			flex-direction: column;
-			gap: 0.75rem;
+			gap: 0.5rem;
 			padding: 0.75rem 1rem;
+		}
+
+		.hero-header {
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.hero h1 {
+			font-size: 1.75rem;
+		}
+
+		.project-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.personal-grid {
+			grid-template-columns: 1fr;
 		}
 
 		.birthday-counter {
 			bottom: 1rem;
 			right: 1rem;
-			font-size: 0.75rem;
-		}
-
-		.hero {
-			padding-top: 5rem;
-			min-height: auto;
-		}
-
-		.life-photos {
-			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-		}
-
-		.life-photos img {
-			height: 120px;
 		}
 	}
 </style>
 
 <script>
-	// Birthday counter
-	function updateBirthdayCounter() {
-		const birthday = new Date('2027-09-19'); // Update with actual birthday
-		const now = new Date();
-		const diff = birthday - now;
-		const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-		
-		const daysCountEl = document.getElementById('days-count');
-		if (daysCountEl && days > 0) {
-			daysCountEl.textContent = days;
-		}
-	}
+  const birthday = new Date('2026-11-21T00:00:00');
 
-	updateBirthdayCounter();
+  function updateBirthdayCounter() {
+    const now = new Date();
+    const difference = birthday.getTime() - now.getTime();
+
+    const daysCountEl = document.getElementById('days-count');
+    const birthdayCounterEl = document.querySelector('.birthday-counter');
+
+    if (!daysCountEl || !birthdayCounterEl) return;
+
+    if (difference <= 0) {
+      birthdayCounterEl.textContent = 'i turned 21 today!';
+      return;
+    }
+
+    const totalSeconds = Math.floor(difference / 1000);
+
+    const days = Math.floor(totalSeconds / (60 * 60 * 24));
+    const hours = Math.floor(
+      (totalSeconds % (60 * 60 * 24)) / (60 * 60)
+    );
+    const minutes = Math.floor(
+      (totalSeconds % (60 * 60)) / 60
+    );
+    const seconds = totalSeconds % 60;
+
+    daysCountEl.textContent =
+      `${days}d ${hours}h ${minutes}m`;
+  }
+
+  updateBirthdayCounter();
+  setInterval(updateBirthdayCounter, 100000);
 </script>
