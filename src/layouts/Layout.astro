@@ -18,6 +18,7 @@ const { title = "vidha" } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://unpkg.com/github-contrib-graph@3.1.1/dist/gh.css" />
 	</head>
 	<body>
 		<slot />
@@ -26,17 +27,19 @@ const { title = "vidha" } = Astro.props;
 
 <style is:global>
 	:root {
-		--bg-cream: #faf8f5;
-		--bg-cream-dark: #f5f2ed;
-		--text-charcoal: #2d2a26;
-		--text-charcoal-light: #4a4743;
+		--bg-paper: #f7f4ed;
+		--bg-paper-dark: #f0ece3;
+		--text-charcoal: #2a2723;
+		--text-charcoal-light: #484540;
 		--text-muted: #6b6762;
-		--accent-lavender: #b8a9c4;
-		--accent-lavender-light: #d4c8dc;
-		--accent-yellow: #f5d76e;
-		--accent-yellow-light: #fae8a8;
-		--border-subtle: #e8e4df;
-		--border-light: #f0ece7;
+		--accent-lavender: #a898b0;
+		--accent-lavender-light: #c4b8cc;
+		--accent-gold: #c9a962;
+		--accent-gold-light: #dfc48a;
+		--border-subtle: #e5e0d8;
+		--border-light: #ebe7df;
+		--surface: #ffffff;
+		--surface-subtle: #faf8f5;
 	}
 
 	* {
@@ -52,7 +55,7 @@ const { title = "vidha" } = Astro.props;
 
 	body {
 		font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-		background-color: var(--bg-cream);
+		background-color: var(--bg-paper);
 		color: var(--text-charcoal);
 		line-height: 1.6;
 		-webkit-font-smoothing: antialiased;
@@ -105,7 +108,7 @@ const { title = "vidha" } = Astro.props;
 
 	/* Main content container - central column */
 	.container {
-		max-width: 680px;
+		max-width: 800px;
 		margin: 0 auto;
 		padding: 0 1.5rem;
 	}
