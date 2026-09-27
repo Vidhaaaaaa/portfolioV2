@@ -54,31 +54,27 @@ function formatDate(date: string) {
 
     <div class="calendar-container">
       <div class="month-labels" aria-hidden="true">
-        {data.weeks.map((week, index) => {
-          const firstDay = week.contributionDays[0];
-          if (firstDay) {
+        {(() => {
+          const months = [];
+          let lastMonth = -1;
+          
+          data.weeks.forEach((week, index) => {
+            const firstDay = week.contributionDays[0];
             const date = new Date(`${firstDay.date}T00:00:00`);
-            const month = date.getMonth();
-            const prevWeek = index > 0 ? data.weeks[index - 1] : null;
-            let showLabel = false;
+            const month = date.toLocaleDateString('en-US', { month: 'short' });
+            const currentMonth = date.getMonth();
             
-            if (prevWeek) {
-              const prevDate = new Date(`${prevWeek.contributionDays[0].date}T00:00:00`);
-              if (prevDate.getMonth() !== month) {
-                showLabel = true;
-              }
-            } else {
-              showLabel = true;
+            if (currentMonth !== lastMonth) {
+              const weekWidth = 15; // 12px square + 3px gap
+              months.push(
+                <span key={month} style={`position: absolute; left: ${index * weekWidth}px`}>{month}</span>
+              );
+              lastMonth = currentMonth;
             }
-            
-            if (showLabel) {
-              const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-              const weekWidth = 15; // 12px day + 3px gap
-              return <span style={`position: absolute; left: ${index * weekWidth}px; color: var(--text-tertiary); font-size: 0.5625rem; line-height: 14px; font-weight: 500;`}>{months[month]}</span>;
-            }
-          }
-          return null;
-        })}
+          });
+          
+          return months;
+        })()}
       </div>
       <div class="calendar">
         {data.weeks.map((week) => (
@@ -164,7 +160,7 @@ function formatDate(date: string) {
     line-height: 14px;
     color: var(--text-tertiary, #606060);
     position: absolute;
-    font-weight: 500;
+    white-space: nowrap;
   }
 
   .weekday-labels {
