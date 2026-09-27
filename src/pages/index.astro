@@ -18,7 +18,7 @@ const githubData = await getGithubContributions();
 				<a href="https://github.com/vidha" target="_blank" rel="noopener">GitHub</a>
 				<a href="https://x.com/vidha" target="_blank" rel="noopener">X</a>
 				<a href="https://linkedin.com/in/vidha" target="_blank" rel="noopener">LinkedIn</a>
-				<a href="mailto:works.vidha@gmail.com">Email</a>
+				<a href="mailto:vidha@gmail.com">Email</a>
 			</div>
 			<div class="nav-right">
 				<a href="#contact" class="nav-cta">Work with me →</a>
@@ -42,10 +42,15 @@ const githubData = await getGithubContributions();
 					<img src="../src/images/pfp.jpeg" alt="vidha" class="profile-pic" />
 				</div>
 
-				<!-- Name & Age -->
+				<!-- Name, Age & Role -->
 				<div class="hero-name">
 					Vidha Singh Chauhan
-					<span class="hero-age">20</span>
+					<span class="hero-age">she/her</span>
+
+					<!-- Role -->
+					<div class="hero-role">
+						Full Stack Developer&nbsp&nbsp·&nbsp&nbsp3+ years Building
+					</div>
 				</div>
 			</div>
 
@@ -55,30 +60,29 @@ const githubData = await getGithubContributions();
 				<p>usually something i probably didn't need to build.</p>
 			</div>
 
-			<!-- Role -->
-			<div class="hero-role">
-				software developer · 3+ years building
+
+			<!-- Tech Skills -->
+			<div class="hero-tech">
+				<img src="../src/images/skills/python.png" alt="Python" class="skills-icon" />
+				<div class="skill-icon flask-icon">
+					<img src="../src/images/skills/flask.png" alt="Flask" />
+				</div>
+				<img src="../src/images/skills/fastapi.png" alt="FastAPI" class="skills-icon" />
+				<img src="../src/images/skills/react.png" alt="React.js" class="skills-icon" />
+				<img src="../src/images/skills/jinja.png" alt="Jinja" class="skills-icon" />
+				<img src="../src/images/skills/MySQL.png" alt="MySQL" class="skills-icon" />
+				<img src="../src/images/skills/postgresql.png" alt="PostgreSQL" class="skills-icon" />
 			</div>
 
-			<!-- Tech Icons -->
-			<div class="hero-tech">
-				<span class="tech-icon mono">Python</span>
-				<span class="tech-icon mono">FastAPI</span>
-				<span class="tech-icon mono">PostgreSQL</span>
-				<span class="tech-icon mono">Git</span>
-				<span class="tech-icon mono">Docker</span>
-			</div>
+			<a href="/work" class="full-stack-link">
+				see full stack →
+			</a>
 
 			<!-- Spotify + X -->
 			<div class="hero-social">
 				<a href="https://open.spotify.com" target="_blank" rel="noopener" class="social-link">
 					<span class="social-icon">♫</span>
-					<span class="social-text">currently listening</span>
-					<span class="social-detail mono">song · artist</span>
-				</a>
-				<a href="https://x.com/vidha" target="_blank" rel="noopener" class="social-link">
-					<span class="social-icon">𝕏</span>
-					<span class="social-text">@vidha</span>
+					<span class="social-detail mono">Ranjish Hi Sahi · Mehdi Hassan</span>
 				</a>
 			</div>
 
@@ -372,6 +376,7 @@ const githubData = await getGithubContributions();
 		align-items: center;
 		text-align: center;
 		gap: 0.75rem;
+		margin-top: 10rem;
 	}
 
 	.hero-github {
@@ -389,8 +394,8 @@ const githubData = await getGithubContributions();
 	}
 
 	.profile-pic {
-		width: 64px;
-		height: 64px;
+		width: 100px;
+		height: 100px;
 		border-radius: 50%;
 		object-fit: cover;
 	}
@@ -420,17 +425,68 @@ const githubData = await getGithubContributions();
 	}
 
 	.hero-role {
-		font-size: 0.8125rem;
+		font-size: 0.8200rem;
 		color: var(--text-secondary);
-		margin-bottom: 1rem;
+		margin-bottom: 0.1rem;
+		margin-left: 0.5rem;
+		text-align: left;
 	}
 
 	.hero-tech {
 		display: flex;
-		flex-wrap: wrap;
+		align-items: center;
 		justify-content: center;
-		gap: 0.375rem;
-		margin-bottom: 1rem;
+		gap: 1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.skills-icon {
+		width: 45px;
+		height: 45px;
+		object-fit: contain;
+		display: block;
+		opacity: 0.7;
+		transition: opacity 0.2s ease, transform 0.2s ease;
+	}
+
+	.skills-icon:hover {
+		opacity: 1;
+		transform: translateY(-2px);
+	}
+
+	.skill-icon {
+		width: 45px;
+		height: 45px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.flask-icon {
+		width: 45px;
+		height: 45px;
+		background: var(--text-primary);
+		border-radius: 25%;
+		padding: 4px;
+	}
+
+	.flask-icon img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		display: block;
+	}
+
+	.full-stack-link {
+		font-size: 0.75rem;
+		color: var(--text-secondary);
+		text-decoration: none;
+		margin-bottom: 0.75rem;
+		transition: color 0.2s ease;
+	}
+
+	.full-stack-link:hover {
+		color: var(--text-primary);
 	}
 
 	.tech-icon {
@@ -837,8 +893,15 @@ const githubData = await getGithubContributions();
 			font-size: 1rem;
 		}
 
-		.hero-tech {
-			gap: 0.5rem;
+		@media (max-width: 768px) {
+			.hero-tech {
+				gap: 0.75rem;
+			}
+
+			.skills-icon {
+				width: 20px;
+				height: 20px;
+			}
 		}
 
 		.hero-social {
