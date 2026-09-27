@@ -11,87 +11,85 @@ const githubData = await getGithubContributions();
 	<!-- Navigation -->
 	<nav class="nav">
 		<div class="nav-inner container-wide">
-			<div class="nav-top">
-				<GithubGraph data={githubData} />
+			<div class="nav-left">
+				<a href="/" class="nav-name">VIDHA</a>
 			</div>
-			<div class="nav-bottom">
-				<div class="nav-left">
-					<span class="mono-accent">vidha</span>
-					<span class="nav-separator mono">/</span>
-					<a href="https://github.com/vidha" target="_blank" rel="noopener" class="mono">github</a>
-					<span class="nav-separator mono">/</span>
-					<a href="https://x.com/vidha" target="_blank" rel="noopener" class="mono">x</a>
-					<span class="nav-separator mono">/</span>
-					<a href="https://linkedin.com/in/vidha" target="_blank" rel="noopener" class="mono">linkedin</a>
-					<span class="nav-separator mono">/</span>
-					<a href="mailto:hello@vidha.com" class="mono">email</a>
-				</div>
-				<div class="nav-right">
-					<a href="#contact" class="mono-accent">[ CONNECT ]</a>
-				</div>
+			<div class="nav-center">
+				<a href="https://github.com/vidha" target="_blank" rel="noopener">GitHub</a>
+				<a href="https://x.com/vidha" target="_blank" rel="noopener">X</a>
+				<a href="https://linkedin.com/in/vidha" target="_blank" rel="noopener">LinkedIn</a>
+				<a href="mailto:hello@vidha.com">Email</a>
+			</div>
+			<div class="nav-right">
+				<a href="#contact" class="nav-cta">Work with me →</a>
+				<button class="theme-toggle" aria-label="Toggle theme">◐</button>
 			</div>
 		</div>
 	</nav>
 
 	<!-- Birthday Counter -->
-	<div class="birthday-counter mono">
-		<span id="days-count">[dynamic]</span> till i turn 21
+	<div class="birthday-counter">
+		<span id="days-count">[dynamic]</span>
 	</div>
 
 	<!-- Hero -->
 	<section class="hero container-wide">
-		<div class="hero-layout">
-			<!-- Left: Profile + Metadata -->
-			<div class="hero-left">
-				<div class="profile-section">
-					<img src="../src/images/pfp.jpeg" alt="vidha" class="profile-pic" />
-				</div>
-				
-				<div class="inspection-panel">
-					<div class="inspection-row">
-						<span class="inspection-label mono">IDENTITY</span>
-						<span class="inspection-value">VIDHA SINGH CHAUHAN</span>
-					</div>
-					<div class="inspection-row">
-						<span class="inspection-label mono">ROLE</span>
-						<span class="inspection-value">SOFTWARE DEVELOPER</span>
-					</div>
-					<div class="inspection-row">
-						<span class="inspection-label mono">EXPERIENCE</span>
-						<span class="inspection-value">03+ YEARS</span>
-					</div>
-					<div class="inspection-row">
-						<span class="inspection-label mono">STATUS</span>
-						<span class="inspection-value status-building">
-							<span class="status-dot"></span>
-							BUILDING
-						</span>
-					</div>
-				</div>
+		<div class="hero-content">
+			<!-- GitHub Activity -->
+			<div class="hero-github">
+				<GithubGraph data={githubData} />
 			</div>
 
-			<!-- Right: Statement -->
-			<div class="hero-right">
-				<div class="hero-statement">
-					<p class="hero-intro">i build and ship things on the internet.</p>
-					<p class="hero-intro">usually something i probably didn't need to build.</p>
-				</div>
+			<!-- Profile -->
+			<div class="hero-profile">
+				<img src="../src/images/pfp.jpeg" alt="vidha" class="profile-pic" />
+			</div>
 
-				<!-- Contexta Status -->
-				<div class="current-system">
-					<div class="system-header">
-						<span class="mono">CURRENT SYSTEM</span>
-						<span class="status-indicator mono status-building">● ACTIVE</span>
-					</div>
-					<div class="system-body">
-						<h3>contexta</h3>
-						<p class="mono">memory layer for codebases</p>
-						<div class="system-meta">
-							<span class="mono">FOUNDER · CEO</span>
-							<span class="mono">2026</span>
-						</div>
-					</div>
-				</div>
+			<!-- Name & Age -->
+			<div class="hero-name">
+				hi, i'm vidha.
+				<span class="hero-age">20</span>
+			</div>
+
+			<!-- Statement -->
+			<div class="hero-statement">
+				<p>i build and ship things on the internet.</p>
+				<p>usually something i probably didn't need to build.</p>
+			</div>
+
+			<!-- Role -->
+			<div class="hero-role">
+				software developer · 3+ years building
+			</div>
+
+			<!-- Tech Icons -->
+			<div class="hero-tech">
+				<span class="tech-icon mono">Python</span>
+				<span class="tech-icon mono">FastAPI</span>
+				<span class="tech-icon mono">PostgreSQL</span>
+				<span class="tech-icon mono">Git</span>
+				<span class="tech-icon mono">Docker</span>
+			</div>
+
+			<!-- Spotify + X -->
+			<div class="hero-social">
+				<a href="https://open.spotify.com" target="_blank" rel="noopener" class="social-link">
+					<span class="social-icon">♫</span>
+					<span class="social-text">currently listening</span>
+					<span class="social-detail mono">song · artist</span>
+				</a>
+				<a href="https://x.com/vidha" target="_blank" rel="noopener" class="social-link">
+					<span class="social-icon">𝕏</span>
+					<span class="social-text">@vidha</span>
+				</a>
+			</div>
+
+			<!-- Currently Building -->
+			<div class="hero-building">
+				<p class="building-label mono">currently building</p>
+				<h3>CONTEXTA</h3>
+				<p class="building-desc">a memory layer for codebases.</p>
+				<p class="building-meta mono">founder & developer · 2026</p>
 			</div>
 		</div>
 	</section>
@@ -100,300 +98,185 @@ const githubData = await getGithubContributions();
 	<section class="projects container-wide">
 		<div class="projects-header">
 			<h2>projects</h2>
-			<p class="mono">SYSTEM INSPECTION</p>
 		</div>
 		
 		<div class="projects-list">
 			<!-- Contexta - Primary -->
-			<div class="project-panel project-primary">
-				<div class="panel-header">
-					<div class="panel-title">
-						<span class="mono">PROJECT</span>
-						<h3>contexta</h3>
-					</div>
-					<div class="panel-status">
-						<span class="mono status-building">● BUILDING</span>
+			<div class="project-item project-featured">
+				<div class="project-main">
+					<h3>contexta</h3>
+					<p class="project-desc">a memory layer for codebases</p>
+					<div class="project-tech">
+						<span class="tech-tag mono">Python</span>
+						<span class="tech-tag mono">FastAPI</span>
+						<span class="tech-tag mono">Supabase</span>
 					</div>
 				</div>
-				<div class="panel-body">
-					<div class="panel-grid">
-						<div class="panel-main">
-							<p class="project-desc">a memory layer for codebases</p>
-							<div class="panel-meta">
-								<div class="meta-row">
-									<span class="mono">YEAR</span>
-									<span class="mono">2026</span>
-								</div>
-								<div class="meta-row">
-									<span class="mono">ROLE</span>
-									<span class="mono">FOUNDER · DEVELOPER</span>
-								</div>
-								<div class="meta-row">
-									<span class="mono">STACK</span>
-									<span class="mono">PYTHON · FASTAPI · SUPABASE</span>
-								</div>
-							</div>
-						</div>
-						<div class="panel-actions">
-							<a href="#" class="mono-accent">[ LIVE ]</a>
-							<a href="https://github.com/vidha/contexta" target="_blank" rel="noopener" class="mono-accent">[ GITHUB ]</a>
-						</div>
-					</div>
+				<div class="project-links">
+					<a href="#" class="project-link">Live →</a>
+					<a href="https://github.com/vidha/contexta" target="_blank" rel="noopener" class="project-link">GitHub</a>
 				</div>
 			</div>
 
 			<!-- Skippit -->
-			<div class="project-panel">
-				<div class="panel-header">
-					<div class="panel-title">
-						<span class="mono">PROJECT</span>
-						<h3>skippit</h3>
-					</div>
-					<div class="panel-status">
-						<span class="mono">● COMPLETE</span>
+			<div class="project-item">
+				<div class="project-main">
+					<h3>skippit</h3>
+					<p class="project-desc">async interviews for startups</p>
+					<div class="project-tech">
+						<span class="tech-tag mono">Python</span>
+						<span class="tech-tag mono">Flask</span>
+						<span class="tech-tag mono">WebRTC</span>
 					</div>
 				</div>
-				<div class="panel-body">
-					<div class="panel-grid">
-						<div class="panel-main">
-							<p class="project-desc">async interviews for startups</p>
-							<div class="panel-meta">
-								<div class="meta-row">
-									<span class="mono">YEAR</span>
-									<span class="mono">2025</span>
-								</div>
-								<div class="meta-row">
-									<span class="mono">ROLE</span>
-									<span class="mono">DEVELOPER</span>
-								</div>
-								<div class="meta-row">
-									<span class="mono">STACK</span>
-									<span class="mono">PYTHON · FLASK · WEBRTC</span>
-								</div>
-							</div>
-						</div>
-						<div class="panel-actions">
-							<a href="#" class="mono-accent">[ LIVE ]</a>
-							<a href="https://github.com/vidha/skippit" target="_blank" rel="noopener" class="mono-accent">[ GITHUB ]</a>
-						</div>
-					</div>
+				<div class="project-links">
+					<a href="#" class="project-link">Live →</a>
+					<a href="https://github.com/vidha/skippit" target="_blank" rel="noopener" class="project-link">GitHub</a>
 				</div>
 			</div>
 
 			<!-- Ditto -->
-			<div class="project-panel">
-				<div class="panel-header">
-					<div class="panel-title">
-						<span class="mono">PROJECT</span>
-						<h3>ditto</h3>
-					</div>
-					<div class="panel-status">
-						<span class="mono">● COMPLETE</span>
+			<div class="project-item">
+				<div class="project-main">
+					<h3>ditto</h3>
+					<p class="project-desc">screenshots → useful information</p>
+					<div class="project-tech">
+						<span class="tech-tag mono">Python</span>
+						<span class="tech-tag mono">FastAPI</span>
+						<span class="tech-tag mono">Tesseract</span>
 					</div>
 				</div>
-				<div class="panel-body">
-					<div class="panel-grid">
-						<div class="panel-main">
-							<p class="project-desc">screenshots → useful information</p>
-							<div class="panel-meta">
-								<div class="meta-row">
-									<span class="mono">YEAR</span>
-									<span class="mono">2025</span>
-								</div>
-								<div class="meta-row">
-									<span class="mono">ROLE</span>
-									<span class="mono">DEVELOPER</span>
-								</div>
-								<div class="meta-row">
-									<span class="mono">STACK</span>
-									<span class="mono">PYTHON · FASTAPI · TESSERACT</span>
-								</div>
-							</div>
-						</div>
-						<div class="panel-actions">
-							<a href="#" class="mono-accent">[ LIVE ]</a>
-							<a href="https://github.com/vidha/ditto" target="_blank" rel="noopener" class="mono-accent">[ GITHUB ]</a>
-						</div>
-					</div>
+				<div class="project-links">
+					<a href="#" class="project-link">Live →</a>
+					<a href="https://github.com/vidha/ditto" target="_blank" rel="noopener" class="project-link">GitHub</a>
 				</div>
 			</div>
 
 			<!-- SnapTunnel -->
-			<div class="project-panel">
-				<div class="panel-header">
-					<div class="panel-title">
-						<span class="mono">PROJECT</span>
-						<h3>snaptunnel</h3>
-					</div>
-					<div class="panel-status">
-						<span class="mono">● COMPLETE</span>
+			<div class="project-item">
+				<div class="project-main">
+					<h3>snaptunnel</h3>
+					<p class="project-desc">peer-to-peer file sharing</p>
+					<div class="project-tech">
+						<span class="tech-tag mono">JavaScript</span>
+						<span class="tech-tag mono">WebTorrent</span>
+						<span class="tech-tag mono">WebRTC</span>
 					</div>
 				</div>
-				<div class="panel-body">
-					<div class="panel-grid">
-						<div class="panel-main">
-							<p class="project-desc">peer-to-peer file sharing</p>
-							<div class="panel-meta">
-								<div class="meta-row">
-									<span class="mono">YEAR</span>
-									<span class="mono">2025</span>
-								</div>
-								<div class="meta-row">
-									<span class="mono">ROLE</span>
-									<span class="mono">DEVELOPER</span>
-								</div>
-								<div class="meta-row">
-									<span class="mono">STACK</span>
-									<span class="mono">JAVASCRIPT · WEBTORRENT · WEBRTC</span>
-								</div>
-							</div>
-						</div>
-						<div class="panel-actions">
-							<a href="#" class="mono-accent">[ LIVE ]</a>
-							<a href="https://github.com/vidha/snaptunnel" target="_blank" rel="noopener" class="mono-accent">[ GITHUB ]</a>
-						</div>
-					</div>
+				<div class="project-links">
+					<a href="#" class="project-link">Live →</a>
+					<a href="https://github.com/vidha/snaptunnel" target="_blank" rel="noopener" class="project-link">GitHub</a>
 				</div>
 			</div>
 
 			<!-- TicketLedger -->
-			<div class="project-panel">
-				<div class="panel-header">
-					<div class="panel-title">
-						<span class="mono">PROJECT</span>
-						<h3>ticketledger</h3>
-					</div>
-					<div class="panel-status">
-						<span class="mono">● COMPLETE</span>
+			<div class="project-item">
+				<div class="project-main">
+					<h3>ticketledger</h3>
+					<p class="project-desc">decentralized ticketing on aptos</p>
+					<div class="project-tech">
+						<span class="tech-tag mono">Move</span>
+						<span class="tech-tag mono">Aptos</span>
+						<span class="tech-tag mono">TypeScript</span>
 					</div>
 				</div>
-				<div class="panel-body">
-					<div class="panel-grid">
-						<div class="panel-main">
-							<p class="project-desc">decentralized ticketing on aptos</p>
-							<div class="panel-meta">
-								<div class="meta-row">
-									<span class="mono">YEAR</span>
-									<span class="mono">2025</span>
-								</div>
-								<div class="meta-row">
-									<span class="mono">ROLE</span>
-									<span class="mono">DEVELOPER</span>
-								</div>
-								<div class="meta-row">
-									<span class="mono">STACK</span>
-									<span class="mono">MOVE · APTOS · TYPESCRIPT</span>
-								</div>
-							</div>
-						</div>
-						<div class="panel-actions">
-							<a href="#" class="mono-accent">[ LIVE ]</a>
-							<a href="https://github.com/vidha/ticketledger" target="_blank" rel="noopener" class="mono-accent">[ GITHUB ]</a>
-						</div>
-					</div>
+				<div class="project-links">
+					<a href="#" class="project-link">Live →</a>
+					<a href="https://github.com/vidha/ticketledger" target="_blank" rel="noopener" class="project-link">GitHub</a>
 				</div>
 			</div>
 		</div>
-
-		<a href="/work" class="see-more mono-accent">[ VIEW ALL SYSTEMS ]</a>
 	</section>
 
 	<!-- Experience -->
 	<section class="experience container-wide">
 		<div class="experience-header">
 			<h2>experience</h2>
-			<p class="mono">ENGINEERING HISTORY</p>
 		</div>
 		
-		<div class="experience-timeline">
-			<div class="timeline-entry">
-				<div class="timeline-marker mono">2026</div>
-				<div class="timeline-content">
-					<div class="timeline-header">
-						<h3>contexta</h3>
-						<span class="mono status-building">● ACTIVE</span>
-					</div>
-					<p class="mono">FOUNDER · CEO</p>
-					<p class="timeline-desc">building a memory layer for codebases</p>
+		<div class="experience-list">
+			<div class="experience-item">
+				<div class="experience-main">
+					<h3>contexta</h3>
+					<p class="experience-role mono">founder & ceo</p>
+					<p class="experience-date mono">may 2026–present</p>
 				</div>
 			</div>
 
-			<div class="timeline-entry">
-				<div class="timeline-marker mono">2025</div>
-				<div class="timeline-content">
-					<div class="timeline-header">
-						<h3>[company name]</h3>
-						<span class="mono">● COMPLETE</span>
-					</div>
-					<p class="mono">[role]</p>
-					<p class="timeline-desc">1–2 lines describing what you actually worked on</p>
+			<div class="experience-item">
+				<div class="experience-main">
+					<h3>[company name]</h3>
+					<p class="experience-role mono">[role]</p>
+					<p class="experience-date mono">[year/date]</p>
+					<p class="experience-desc">1–2 lines describing what you actually worked on</p>
 				</div>
 			</div>
 		</div>
-
-		<a href="/work" class="see-more mono-accent">[ VIEW FULL HISTORY ]</a>
 	</section>
 
 	<!-- Contact -->
 	<section class="contact container-wide" id="contact">
-		<div class="contact-panel">
-			<div class="panel-header">
-				<span class="mono">SYSTEM ACTION</span>
-				<span class="mono">● READY</span>
-			</div>
-			<div class="panel-body">
-				<h2>ready to connect?</h2>
-				<p class="contact-desc">i build web apps, backend systems, APIs, internal tools, MVPs and automations for startups and other people building things.</p>
-				<a href="mailto:hello@vidha.com" class="system-button mono-accent">[ SEND MESSAGE ]</a>
-			</div>
+		<div class="contact-content">
+			<h2>let's build something.</h2>
+			<p class="contact-desc">Available for freelance development, collaborations, and interesting software projects.</p>
+			
+			<form class="contact-form">
+				<div class="form-group">
+					<label for="name" class="form-label mono">Name</label>
+					<input type="text" id="name" name="name" class="form-input" required />
+				</div>
+				<div class="form-group">
+					<label for="email" class="form-label mono">Email</label>
+					<input type="email" id="email" name="email" class="form-input" required />
+				</div>
+				<div class="form-group">
+					<label for="message" class="form-label mono">What can I help with?</label>
+					<textarea id="message" name="message" class="form-input form-textarea" rows="4" required></textarea>
+				</div>
+				<button type="submit" class="form-submit">Send message →</button>
+			</form>
+			
+			<p class="contact-email mono">or email directly: <a href="mailto:hello@vidha.com">hello@vidha.com</a></p>
 		</div>
 	</section>
 
 	<!-- Communities -->
-	<section class="communities container-medium">
+	<section class="communities container-wide">
 		<div class="communities-header">
 			<h2>communities</h2>
-			<p class="mono">SECONDARY CONTEXT</p>
 		</div>
 		
 		<div class="community-list">
 			<div class="community-item">
-				<div class="community-main">
-					<h3>eis</h3>
-					<p class="mono">GENERAL SECRETARY</p>
-					<p class="community-desc">building entrepreneurship and innovation at university</p>
-				</div>
+				<h3>eis</h3>
+				<p class="mono">general secretary</p>
+				<p class="community-desc">building entrepreneurship and innovation at university</p>
 			</div>
 
 			<div class="community-item">
-				<div class="community-main">
-					<h3>accelerate</h3>
-					<p class="mono">FOUNDER</p>
-					<p class="community-desc">builder community around open source and collaboration</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Personal -->
-	<section class="personal container-narrow">
-		<div class="personal-header">
-			<h2>beyond code</h2>
-			<p class="mono">ADDITIONAL CONTEXT</p>
-		</div>
-		
-		<div class="personal-list">
-			<div class="personal-item">
-				<p class="mono">music · video editing · reading · random experiments · cats</p>
-				<p class="personal-note">and approximately 47 unfinished side projects.</p>
+				<h3>accelerate</h3>
+				<p class="mono">founder</p>
+				<p class="community-desc">builder community around open source and collaboration</p>
 			</div>
 		</div>
 	</section>
 
 	<!-- Footer -->
 	<footer class="footer container-wide">
-		<div class="footer-inner">
-			<p class="mono">© 2026 vidha · <a href="https://github.com/vidha/portfolio" target="_blank" rel="noopener">[ SOURCE ]</a></p>
+		<div class="footer-content">
+			<div class="footer-personal">
+				<p class="mono">guitar · music · video · books</p>
+			</div>
+			<div class="footer-links">
+				<a href="https://github.com/vidha" target="_blank" rel="noopener">GitHub</a>
+				<a href="https://linkedin.com/in/vidha" target="_blank" rel="noopener">LinkedIn</a>
+				<a href="https://x.com/vidha" target="_blank" rel="noopener">X</a>
+				<a href="mailto:hello@vidha.com">Email</a>
+				<a href="https://github.com/vidha/portfolio" target="_blank" rel="noopener">Open source</a>
+			</div>
+			<div class="footer-copy">
+				<p class="mono">© 2026 vidha</p>
+			</div>
 		</div>
 	</footer>
 </Layout>
@@ -405,210 +288,218 @@ const githubData = await getGithubContributions();
 		top: 0;
 		left: 0;
 		right: 0;
-		background: var(--bg-secondary);
-		border-bottom: 1px solid var(--border-medium);
+		background: var(--bg-primary);
+		border-bottom: 1px solid var(--border-subtle);
 		z-index: 100;
 	}
 
 	.nav-inner {
 		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		padding: 0.75rem 0;
-	}
-
-	.nav-top {
-		display: flex;
-		justify-content: center;
-	}
-
-	.nav-bottom {
-		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		padding: 1rem 0;
 	}
 
 	.nav-left,
+	.nav-center,
 	.nav-right {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: 1.5rem;
 	}
 
-	.nav-separator {
-		color: var(--text-tertiary);
+	.nav-name {
+		font-weight: 600;
+		font-size: 0.875rem;
+		letter-spacing: -0.02em;
+	}
+
+	.nav-center a {
 		font-size: 0.75rem;
+		color: var(--text-secondary);
+	}
+
+	.nav-center a:hover {
+		color: var(--text-primary);
+	}
+
+	.nav-cta {
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: var(--text-primary);
+	}
+
+	.theme-toggle {
+		background: none;
+		border: none;
+		color: var(--text-tertiary);
+		font-size: 1.25rem;
+		cursor: pointer;
+		padding: 0.25rem;
+		transition: color 0.2s ease;
+	}
+
+	.theme-toggle:hover {
+		color: var(--text-primary);
 	}
 
 	/* Birthday Counter */
 	.birthday-counter {
 		position: fixed;
-		bottom: 1.5rem;
-		right: 1.5rem;
-		font-size: 0.6875rem;
-		color: var(--text-tertiary);
+		bottom: 2rem;
+		right: 2rem;
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: var(--text-primary);
 		background: var(--bg-secondary);
-		padding: 0.5rem 0.75rem;
-		border: 1px solid var(--border-subtle);
-		border-radius: 2px;
+		padding: 0.375rem 0.625rem;
+		border: 1px solid var(--border-medium);
+		border-radius: 0;
+		z-index: 50;
 	}
 
 	/* Hero */
 	.hero {
-		padding: 8rem 0 6rem;
-		border-bottom: 1px solid var(--border-subtle);
+		padding: 3rem 0 2rem;
 	}
 
-	.hero-layout {
-		display: grid;
-		grid-template-columns: 320px 1fr;
-		gap: 4rem;
-		align-items: start;
+	.hero-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 0.75rem;
 	}
 
-	.hero-left {
-		position: sticky;
-		top: 6rem;
+	.hero-github {
+		margin-bottom: 0.75rem;
 	}
 
-	.profile-section {
-		margin-bottom: 2rem;
+	.hero-profile {
+		margin-bottom: 0.75rem;
 	}
 
 	.profile-pic {
-		width: 80px;
-		height: 80px;
+		width: 64px;
+		height: 64px;
 		border-radius: 50%;
 		object-fit: cover;
-		border: 2px solid var(--border-medium);
 	}
 
-	.inspection-panel {
-		background: var(--bg-secondary);
-		border: 1px solid var(--border-subtle);
-		border-radius: 4px;
-		padding: 1.5rem;
+	.hero-name {
+		font-size: 2rem;
+		font-weight: 600;
+		letter-spacing: -0.04em;
+		margin-bottom: 0.5rem;
 	}
 
-	.inspection-row {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0.75rem 0;
-		border-bottom: 1px solid var(--border-subtle);
-	}
-
-	.inspection-row:last-child {
-		border-bottom: none;
-	}
-
-	.inspection-label {
-		font-size: 0.6875rem;
-		color: var(--text-tertiary);
-		letter-spacing: 0.05em;
-	}
-
-	.inspection-value {
-		font-size: 0.8125rem;
-		font-weight: 500;
-		color: var(--text-primary);
-	}
-
-	.status-building {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.status-dot {
-		width: 6px;
-		height: 6px;
-		border-radius: 50%;
-		background: var(--status-green);
-		animation: pulse 2s ease-in-out infinite;
-	}
-
-	@keyframes pulse {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0.5; }
-	}
-
-	.hero-right {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
+	.hero-age {
+		font-size: 1.25rem;
+		color: var(--text-secondary);
+		margin-left: 0.5rem;
 	}
 
 	.hero-statement {
-		padding: 2rem 0;
-		border-top: 1px solid var(--border-subtle);
+		max-width: 600px;
+		margin-bottom: 0.75rem;
 	}
 
-	.hero-intro {
-		font-size: 1.25rem;
-		margin-bottom: 0.5rem;
-		color: var(--text-primary);
-		line-height: 1.4;
+	.hero-statement p {
+		font-size: 0.9375rem;
+		line-height: 1.5;
+		margin-bottom: 0.25rem;
 	}
 
-	.current-system {
-		background: var(--bg-secondary);
-		border: 1px solid var(--border-medium);
-		border-radius: 4px;
-		overflow: hidden;
-	}
-
-	.system-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0.75rem 1rem;
-		background: var(--bg-tertiary);
-		border-bottom: 1px solid var(--border-subtle);
-	}
-
-	.status-indicator {
-		font-size: 0.6875rem;
-	}
-
-	.status-building {
-		color: var(--status-green);
-	}
-
-	.system-body {
-		padding: 1.5rem;
-	}
-
-	.system-body h3 {
-		font-size: 1.25rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.system-body p {
-		font-size: 0.875rem;
+	.hero-role {
+		font-size: 0.8125rem;
+		color: var(--text-secondary);
 		margin-bottom: 1rem;
 	}
 
-	.system-meta {
+	.hero-tech {
 		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.375rem;
+		margin-bottom: 1rem;
+	}
+
+	.tech-icon {
+		font-size: 0.8125rem;
+		color: var(--text-tertiary);
+		padding: 0.375rem 0.75rem;
+		background: var(--bg-tertiary);
+		border-radius: 4px;
+	}
+
+	.hero-social {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.social-link {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.875rem;
+		color: var(--text-tertiary);
+		transition: color 0.2s ease;
+	}
+
+	.social-link:hover {
+		color: var(--text-primary);
+	}
+
+	.social-icon {
+		font-size: 1rem;
+	}
+
+	.social-detail {
 		font-size: 0.75rem;
+	}
+
+	.hero-building {
+		text-align: center;
+		padding: 0.75rem;
+		background: var(--bg-secondary);
+		border: 1px solid var(--border-subtle);
+		border-radius: 0;
+		max-width: 500px;
+	}
+
+	.building-label {
+		font-size: 0.75rem;
+		color: var(--text-tertiary);
+		margin-bottom: 0.375rem;
+	}
+
+	.hero-building h3 {
+		font-size: 1.25rem;
+		margin-bottom: 0.375rem;
+		color: var(--text-primary);
+	}
+
+	.building-desc {
+		font-size: 0.8125rem;
+		color: var(--text-secondary);
+		margin-bottom: 0.375rem;
+	}
+
+	.building-meta {
+		font-size: 0.8125rem;
 		color: var(--text-tertiary);
 	}
 
-
 	/* Projects */
 	.projects {
-		padding: 6rem 0;
+		padding: 1.5rem 0;
 	}
 
 	.projects-header {
-		display: flex;
-		align-items: baseline;
-		gap: 1rem;
-		margin-bottom: 3rem;
-		border-bottom: 1px solid var(--border-subtle);
-		padding-bottom: 1rem;
+		margin-bottom: 1rem;
 	}
 
 	.projects-header h2 {
@@ -618,178 +509,120 @@ const githubData = await getGithubContributions();
 	.projects-list {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
-	}
-
-	.project-panel {
-		background: var(--bg-secondary);
-		border: 1px solid var(--border-subtle);
-		border-radius: 4px;
-		overflow: hidden;
-		transition: border-color 0.2s ease;
-	}
-
-	.project-panel:hover {
-		border-color: var(--border-medium);
-	}
-
-	.project-primary {
-		border-color: var(--border-medium);
-	}
-
-	.panel-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0.75rem 1rem;
-		background: var(--bg-tertiary);
-		border-bottom: 1px solid var(--border-subtle);
-	}
-
-	.panel-title {
-		display: flex;
-		align-items: baseline;
 		gap: 0.75rem;
 	}
 
-	.panel-title span {
-		font-size: 0.6875rem;
-		color: var(--text-tertiary);
-	}
-
-	.panel-title h3 {
-		font-size: 1.125rem;
-		margin-bottom: 0;
-	}
-
-	.panel-status {
-		font-size: 0.6875rem;
-	}
-
-	.status-building {
-		color: var(--status-green);
-	}
-
-	.panel-body {
-		padding: 1.5rem;
-	}
-
-	.panel-grid {
+	.project-item {
 		display: grid;
 		grid-template-columns: 1fr auto;
-		gap: 2rem;
+		gap: 1rem;
+		padding: 0.75rem 0;
+		border-bottom: 1px solid var(--border-subtle);
+		align-items: center;
 	}
 
-	.panel-main {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
+	.project-item:last-child {
+		border-bottom: none;
+	}
+
+	.project-featured {
+		padding: 1rem 0;
+		border-bottom: 2px solid var(--border-medium);
+	}
+
+	.project-featured h3 {
+		font-size: 1.25rem;
+		color: var(--text-primary);
+	}
+
+	.project-main h3 {
+		font-size: 1rem;
+		margin-bottom: 0.5rem;
 	}
 
 	.project-desc {
-		font-size: 0.9375rem;
+		font-size: 0.8125rem;
 		color: var(--text-secondary);
-		margin: 0;
+		margin-bottom: 0.5rem;
 	}
 
-	.panel-meta {
+	.project-tech {
 		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
+		flex-wrap: wrap;
+		gap: 0.375rem;
 	}
 
-	.meta-row {
-		display: flex;
-		gap: 1rem;
-	}
-
-	.meta-row span:first-child {
+	.tech-tag {
+		font-size: 0.75rem;
 		color: var(--text-tertiary);
-		min-width: 60px;
+		padding: 0.25rem 0.5rem;
+		background: var(--bg-tertiary);
+		border-radius: 0;
 	}
 
-	.panel-actions {
+	.project-links {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
-		align-self: start;
+		gap: 0.375rem;
+		align-items: flex-end;
 	}
 
-	.see-more {
-		display: inline-block;
-		margin-top: 2rem;
+	.project-link {
+		font-size: 0.875rem;
+		color: var(--text-secondary);
+		transition: color 0.2s ease;
+	}
+
+	.project-link:hover {
+		color: var(--text-primary);
 	}
 
 	/* Experience */
 	.experience {
-		padding: 6rem 0;
+		padding: 1.5rem 0;
 	}
 
 	.experience-header {
-		display: flex;
-		align-items: baseline;
-		gap: 1rem;
-		margin-bottom: 3rem;
-		border-bottom: 1px solid var(--border-subtle);
-		padding-bottom: 1rem;
+		margin-bottom: 1rem;
 	}
 
 	.experience-header h2 {
 		margin-bottom: 0;
 	}
 
-	.experience-timeline {
+	.experience-list {
 		display: flex;
 		flex-direction: column;
 		gap: 0;
 	}
 
-	.timeline-entry {
-		display: grid;
-		grid-template-columns: 100px 1fr;
-		gap: 2rem;
-		padding: 2rem 0;
+	.experience-item {
+		padding: 0.5rem 0;
 		border-bottom: 1px solid var(--border-subtle);
 	}
 
-	.timeline-entry:last-child {
+	.experience-item:last-child {
 		border-bottom: none;
 	}
 
-	.timeline-marker {
-		font-size: 0.875rem;
-		font-weight: 500;
+	.experience-main h3 {
+		font-size: 1rem;
+		margin-bottom: 0.125rem;
+	}
+
+	.experience-role {
+		font-size: 0.75rem;
 		color: var(--text-tertiary);
-		padding-top: 0.25rem;
+		margin-bottom: 0.125rem;
 	}
 
-	.timeline-content {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
+	.experience-date {
+		font-size: 0.75rem;
+		color: var(--text-tertiary);
+		margin-bottom: 0.125rem;
 	}
 
-	.timeline-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
-		gap: 1rem;
-	}
-
-	.timeline-header h3 {
-		font-size: 1.125rem;
-		margin-bottom: 0;
-	}
-
-	.timeline-header span {
-		font-size: 0.6875rem;
-	}
-
-	.timeline-content > p {
-		margin-bottom: 0.25rem;
-	}
-
-	.timeline-desc {
+	.experience-desc {
 		font-size: 0.875rem;
 		color: var(--text-secondary);
 		margin: 0;
@@ -797,67 +630,92 @@ const githubData = await getGithubContributions();
 
 	/* Contact */
 	.contact {
-		padding: 6rem 0;
+		padding: 1.5rem 0;
 	}
 
-	.contact-panel {
-		background: var(--bg-secondary);
-		border: 1px solid var(--border-medium);
-		border-radius: 4px;
-		overflow: hidden;
+	.contact-content {
 		max-width: 600px;
 		margin: 0 auto;
 	}
 
-	.contact-panel .panel-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0.75rem 1rem;
-		background: var(--bg-tertiary);
-		border-bottom: 1px solid var(--border-subtle);
-	}
-
-	.contact-panel .panel-body {
-		padding: 2rem;
-	}
-
-	.contact-panel h2 {
-		margin-bottom: 1rem;
+	.contact-content h2 {
+		margin-bottom: 0.75rem;
 	}
 
 	.contact-desc {
-		font-size: 0.9375rem;
+		font-size: 0.8125rem;
 		color: var(--text-secondary);
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 	}
 
-	.system-button {
-		display: inline-block;
-		padding: 0.75rem 1.5rem;
-		background: var(--accent-blue);
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		margin-bottom: 1rem;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.form-label {
+		font-size: 0.75rem;
+		color: var(--text-tertiary);
+	}
+
+	.form-input {
+	padding: 0.375rem 0.625rem;
+		background: var(--bg-secondary);
+		border: 1px solid var(--border-subtle);
+		border-radius: 0;
+		font-size: 0.8125rem;
+		color: var(--text-primary);
+		font-family: inherit;
+		transition: border-color 0.2s ease;
+	}
+
+	.form-input:focus {
+		outline: none;
+		border-color: var(--border-medium);
+	}
+
+	.form-textarea {
+		resize: vertical;
+		min-height: 100px;
+	}
+
+	.form-submit {
+		padding: 0.5rem 1rem;
+		background: var(--text-primary);
 		color: var(--bg-primary);
-		border-radius: 2px;
-		font-size: 0.875rem;
+		border: none;
+		border-radius: 0;
+		font-size: 0.8125rem;
+		font-weight: 500;
+		cursor: pointer;
 		transition: background 0.2s ease;
 	}
 
-	.system-button:hover {
-		background: var(--accent-blue-light);
+	.form-submit:hover {
+		background: var(--text-secondary);
+	}
+
+	.contact-email {
+		font-size: 0.75rem;
+		color: var(--text-tertiary);
+		text-align: center;
 	}
 
 	/* Communities */
 	.communities {
-		padding: 6rem 0;
+		padding: 1.5rem 0;
 	}
 
 	.communities-header {
-		display: flex;
-		align-items: baseline;
-		gap: 1rem;
-		margin-bottom: 2rem;
-		border-bottom: 1px solid var(--border-subtle);
-		padding-bottom: 1rem;
+		margin-bottom: 0.75rem;
 	}
 
 	.communities-header h2 {
@@ -871,7 +729,7 @@ const githubData = await getGithubContributions();
 	}
 
 	.community-item {
-		padding: 1.5rem 0;
+		padding: 0.375rem 0;
 		border-bottom: 1px solid var(--border-subtle);
 	}
 
@@ -879,81 +737,61 @@ const githubData = await getGithubContributions();
 		border-bottom: none;
 	}
 
-	.community-main h3 {
-		font-size: 1.125rem;
-		margin-bottom: 0.25rem;
+	.community-item h3 {
+		font-size: 0.875rem;
+		margin-bottom: 0.125rem;
+		color: var(--text-secondary);
 	}
 
-	.community-main > p:first-of-type {
-		font-size: 0.8125rem;
+	.community-item > p:first-of-type {
+		font-size: 0.6875rem;
 		color: var(--text-tertiary);
-		margin-bottom: 0.5rem;
+		margin-bottom: 0.125rem;
 	}
 
 	.community-desc {
-		font-size: 0.875rem;
-		color: var(--text-secondary);
-		margin: 0;
-	}
-
-	/* Personal */
-	.personal {
-		padding: 6rem 0;
-	}
-
-	.personal-header {
-		display: flex;
-		align-items: baseline;
-		gap: 1rem;
-		margin-bottom: 2rem;
-		border-bottom: 1px solid var(--border-subtle);
-		padding-bottom: 1rem;
-	}
-
-	.personal-header h2 {
-		margin-bottom: 0;
-	}
-
-	.personal-list {
-		display: flex;
-		flex-direction: column;
-		gap: 0;
-	}
-
-	.personal-item {
-		padding: 1.5rem 0;
-		border-bottom: 1px solid var(--border-subtle);
-	}
-
-	.personal-item:last-child {
-		border-bottom: none;
-	}
-
-	.personal-item p {
-		margin-bottom: 0.5rem;
-	}
-
-	.personal-note {
-		font-size: 0.875rem;
+		font-size: 0.75rem;
 		color: var(--text-tertiary);
-		font-style: italic;
+		margin: 0;
 	}
 
 	/* Footer */
 	.footer {
-		padding: 3rem 0;
+		padding: 1rem 0 1.5rem;
 		border-top: 1px solid var(--border-subtle);
 	}
 
-	.footer-inner {
-		max-width: 900px;
-		margin: 0 auto;
+	.footer-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.75rem;
 	}
 
-	.footer p {
-		font-size: 0.8125rem;
+	.footer-personal {
+		font-size: 0.75rem;
 		color: var(--text-tertiary);
-		margin: 0;
+	}
+
+	.footer-links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	.footer-links a {
+		font-size: 0.75rem;
+		color: var(--text-secondary);
+	}
+
+	.footer-links a:hover {
+		color: var(--text-primary);
+	}
+
+	.footer-copy {
+		font-size: 0.6875rem;
+		color: var(--text-tertiary);
 	}
 
 	/* Responsive */
@@ -964,57 +802,69 @@ const githubData = await getGithubContributions();
 			padding: 0.75rem 0;
 		}
 
+		.nav-center {
+			display: none;
+		}
+
 		.nav-left,
 		.nav-right {
 			flex-wrap: wrap;
 			justify-content: center;
 		}
 
-		.hero-layout {
-			grid-template-columns: 1fr;
-			gap: 2rem;
+		.hero-content {
+			gap: 1.5rem;
 		}
 
-		.hero-left {
-			position: static;
+		.hero-name {
+			font-size: 2rem;
 		}
 
-		.profile-pic {
-			width: 64px;
-			height: 64px;
+		.hero-age {
+			font-size: 1.25rem;
 		}
 
-		.inspection-panel {
-			margin-bottom: 2rem;
+		.hero-statement p {
+			font-size: 1rem;
 		}
 
-		.panel-grid {
-			grid-template-columns: 1fr;
-			gap: 1rem;
-		}
-
-		.panel-actions {
-			flex-direction: row;
-			gap: 1rem;
-		}
-
-		.timeline-entry {
-			grid-template-columns: 1fr;
+		.hero-tech {
 			gap: 0.5rem;
 		}
 
-		.timeline-marker {
-			padding-top: 0;
+		.hero-social {
+			flex-direction: column;
+			gap: 1rem;
 		}
 
-		.contact-panel {
-			max-width: 100%;
+		.hero-building {
+			padding: 1.5rem;
+		}
+
+		.project-item {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		.project-links {
+			flex-direction: row;
+			gap: 1rem;
 		}
 
 		.birthday-counter {
 			bottom: 1rem;
 			right: 1rem;
-			font-size: 0.625rem;
+			font-size: 0.8125rem;
+			padding: 0.5rem 0.75rem;
+		}
+
+		.contact-content {
+			max-width: 100%;
+		}
+
+		.footer-links {
+			flex-direction: column;
+			gap: 0.75rem;
 		}
 	}
 </style>
@@ -1047,10 +897,9 @@ const githubData = await getGithubContributions();
     );
     const seconds = totalSeconds % 60;
 
-    daysCountEl.textContent =
-      `${days}d ${hours}h ${minutes}m`;
+    daysCountEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
   }
 
   updateBirthdayCounter();
-  setInterval(updateBirthdayCounter, 100000);
+  setInterval(updateBirthdayCounter, 1000);
 </script>
