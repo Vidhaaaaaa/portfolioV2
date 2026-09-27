@@ -21,8 +21,11 @@ const { title = "vidha" } = Astro.props;
 		<link rel="stylesheet" href="https://unpkg.com/github-contrib-graph@3.1.1/dist/gh.css" />
 	</head>
 	<body>
-		<div class="cat-cursor">🐱</div>
+		<img src="src/images/cursor1.png" class="cat-cursor" alt="cat cursor" />
 		<slot />
+		<!-- Walking Cat by TechTools.cz -->
+		<script src="https://techtools.cz/tools/walking-cat/cat.js"
+        data-skin="white" data-scale="1" data-speed="normal" data-behavior="stroll" defer></script>
 	</body>
 </html>
 
@@ -268,8 +271,8 @@ const { title = "vidha" } = Astro.props;
 
 		.cat-cursor {
 			position: fixed;
-			width: var(--cursor-size);
-			height: var(--cursor-size);
+			width: calc(var(--cursor-size) * 2.5);
+			height: calc(var(--cursor-size) * 2.5);
 			pointer-events: none;
 			z-index: 9999;
 			transition: transform 0.1s ease-out;
@@ -278,7 +281,7 @@ const { title = "vidha" } = Astro.props;
 		}
 
 		.cat-cursor.hover {
-			transform: scale(1.2);
+			transform: scale(1.3);
 		}
 	}
 
