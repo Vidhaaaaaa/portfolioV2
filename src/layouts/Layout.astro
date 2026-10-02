@@ -69,21 +69,17 @@ const { title = "vidha" } = Astro.props;
 
 		const getOptions = () => ({
 			/* Very subtle waves in both themes */
-			waveColor: darkMode.matches ? "#444444" : "#EEEEEE",
+			waveColor: darkMode.matches ? "#ffffff" : "#000000",
 
 			/* Existing portfolio backgrounds */
 			baseColor: darkMode.matches ? "#000000" : "#FFFFFF",
 
 			
-			waveFrequency: 2.5,
-			waveAmplitude: 0.6,
 
-			/* Small pixels */
-			pixelSize: 1,
+			
 
-			/* Keep the palette restrained */
-			colorNum: 4,
-			matrixSize: 8,
+			
+			
 		});
 
 		createDitheredWaves(canvas, getOptions());
@@ -191,6 +187,7 @@ const { title = "vidha" } = Astro.props;
 		z-index: 0;
 
 		pointer-events: none;
+		opacity: 0.1;
 	}
 
 	/*
