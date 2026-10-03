@@ -1,78 +1,79 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
 ---
 
 <Layout title="hi again">
+	<Navigation />
 	<div class="container">
 		<header class="page-header">
 			<h1>hi again.</h1>
 		</header>
 
 		<article class="about-content">
-			<!-- Personal story content - you'll write this yourself -->
 			<section class="story-section">
 				<h2>how i got into programming</h2>
-				<p>[your story about how you started programming]</p>
+				<p>started when i was 17. no cs degree, no bootcamp, just curiosity and youtube. my first "hello world" felt like magic. i spent nights debugging code that didn't work, reading documentation i barely understood, and slowly falling in love with the process of building things from nothing.</p>
 			</section>
 
 			<section class="story-section">
 				<h2>why i like building things</h2>
-				<p>[your thoughts on why you enjoy building]</p>
+				<p>there's something special about turning an idea into something real. something that works. something people can use. it's the closest thing to having superpowers - you think it, you build it, it exists. that feeling never gets old.</p>
 			</section>
 
 			<section class="story-section">
 				<h2>entrepreneurship & product building</h2>
-				<p>[your journey into entrepreneurship and building products]</p>
+				<p>i've always been drawn to the intersection of tech and business. building products isn't just about code - it's about understanding people, solving real problems, and shipping things that matter. every project i work on teaches me something new about what it takes to go from idea to shipped.</p>
 			</section>
 
 			<section class="story-section">
 				<h2>contexta</h2>
-				<p>[the story behind contexta and what it means to you]</p>
+				<p>contexta is my biggest project yet. it's a persistent conceptual memory layer for codebases - basically giving ai the context it needs to actually understand codebases deeply. it's ambitious, it's complex, and it's exactly the kind of problem i love working on. still building, still learning.</p>
 			</section>
 
 			<section class="story-section">
 				<h2>projects and experiments</h2>
-				<p>[your approach to projects and what you've learned from experiments]</p>
+				<p>i ship a lot. some things work, some don't. the ones that don't teach me more than the ones that do. i've built apis, full-stack apps, ml tools, and random experiments that seemed like good ideas at 2am. every project is a chance to level up.</p>
 			</section>
 
 			<section class="story-section">
 				<h2>eis</h2>
-				<p>[your experience with the entrepreneur & innovation society]</p>
+				<p>the entrepreneur & innovation society at my college. i helped build it from the ground up. we created a space for people who wanted to build things, start companies, and actually do something with their ideas. it was chaotic, it was exhausting, and it was worth every late night.</p>
 			</section>
 
 			<section class="story-section">
 				<h2>accelerate</h2>
-				<p>[the story of starting the accelerate community]</p>
+				<p>started a community called accelerate. it's for people who want to move faster, build better, and stop waiting for permission. we share resources, feedback, and the kind of honest conversations that actually help you grow. it's small, but it's real.</p>
 			</section>
 
 			<section class="story-section">
 				<h2>music & guitar</h2>
-				<p>[your relationship with music and learning guitar]</p>
+				<p>i play guitar. badly, but i play. music is the other thing that keeps me sane when code gets frustrating. there's something about the rhythm and the repetition that just works. plus, it's nice to have a hobby where the worst case scenario is just a bad chord instead of a broken production server.</p>
 			</section>
 
 			<section class="story-section">
 				<h2>video editing</h2>
-				<p>[your experience with video editing]</p>
+				<p>picked it up because i wanted to make content. now it's another tool in the belt. editing is like coding - you're taking raw material and shaping it into something that tells a story. the principles are the same, just different syntax.</p>
 			</section>
 
 			<section class="story-section">
 				<h2>books</h2>
-				<p>[books that have influenced you and your reading habits]</p>
+				<p>i read. mostly non-fiction, mostly about building things and understanding people. books are like compressed experience - you get to learn from someone else's years of work in a few hours. that's a good deal.</p>
 			</section>
 
 			<section class="story-section">
 				<h2>photos, friends & life</h2>
-				<p>[thoughts on capturing moments and the people in your life]</p>
+				<p>i take photos. not because i'm good at it, but because i want to remember. moments with friends, late nights working on projects, random things that make me stop and look. life moves fast. sometimes you need to hit pause.</p>
 			</section>
 
 			<section class="story-section">
 				<h2>curiosity</h2>
-				<p>[what drives your curiosity and exploration]</p>
+				<p>that's the engine. i want to know how things work. why they work. how to make them better. curiosity is what got me into programming, what keeps me building, and what will probably keep me learning until i'm old and gray.</p>
 			</section>
 
 			<section class="story-section">
 				<h2>what i'm figuring out</h2>
-				<p>[what you're currently learning and figuring out]</p>
+				<p>everything. always. right now i'm deep into ai, distributed systems, and how to build products that actually scale. but the real learning happens in the gaps - between projects, in failed experiments, in conversations with people smarter than me. the goal isn't to know everything, it's to never stop asking questions.</p>
 			</section>
 
 			<p class="handwritten closing-note">life is kind of a sidequest.</p>
@@ -100,7 +101,7 @@ import Layout from '../layouts/Layout.astro';
 	.story-section h2 {
 		font-size: 1.25rem;
 		margin-bottom: 1rem;
-		color: var(--accent-lavender);
+		color: var(--text-primary);
 	}
 
 	.story-section p {
