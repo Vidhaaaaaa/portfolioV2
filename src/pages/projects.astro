@@ -1,0 +1,306 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import { projects } from '../data/projects';
+---
+
+<Layout title="projects">
+	<Navigation />
+	<div class="container-wide">
+		<header class="page-header">
+			<h1>projects</h1>
+			<p class="page-intro">things i've built, shipped, and learned from.</p>
+		</header>
+
+		<!-- Stack Section -->
+		<section class="stack-section">
+			<h2 class="stack-title">my stack</h2>
+			
+			<div class="stack-grid">
+				<!-- Languages -->
+				<div class="stack-category">
+					<h3 class="category-title">languages</h3>
+					<div class="stack-items">
+						<span class="stack-item">Python</span>
+						<span class="stack-item">TypeScript</span>
+						<span class="stack-item">SQL</span>
+					</div>
+				</div>
+
+				<!-- Frameworks -->
+				<div class="stack-category">
+					<h3 class="category-title">frameworks</h3>
+					<div class="stack-items">
+						<span class="stack-item">FastAPI</span>
+						<span class="stack-item">Flask</span>
+						<span class="stack-item">React</span>
+						<span class="stack-item">Astro</span>
+					</div>
+				</div>
+
+				<!-- Databases -->
+				<div class="stack-category">
+					<h3 class="category-title">databases</h3>
+					<div class="stack-items">
+						<span class="stack-item">PostgreSQL</span>
+						<span class="stack-item">MySQL</span>
+					</div>
+				</div>
+
+				<!-- Tools -->
+				<div class="stack-category">
+					<h3 class="category-title">tools</h3>
+					<div class="stack-items">
+						<span class="stack-item">Docker</span>
+						<span class="stack-item">Git</span>
+						<span class="stack-item">Ollama</span>
+					</div>
+				</div>
+
+				<!-- ML -->
+				<div class="stack-category">
+					<h3 class="category-title">ml & data</h3>
+					<div class="stack-items">
+						<span class="stack-item">pandas</span>
+						<span class="stack-item">scikit-learn</span>
+						<span class="stack-item">xgboost</span>
+						<span class="stack-item">catboost</span>
+					</div>
+				</div>
+
+				<!-- Other -->
+				<div class="stack-category">
+					<h3 class="category-title">other</h3>
+					<div class="stack-items">
+						<span class="stack-item">WebRTC</span>
+						<span class="stack-item">IPFS</span>
+						<span class="stack-item">Tesseract</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects Grid -->
+		<section class="projects-section">
+			<h2 class="projects-section-title">detailed work</h2>
+			
+			<div class="projects-grid">
+				{projects.map((project) => (
+					<div class="project-card">
+						<div class="project-card-header">
+							<h3 class="project-card-title">{project.title}</h3>
+							{project.currently && (
+								<span class="status-tag mono">ongoing</span>
+							)}
+						</div>
+						<p class="project-card-date mono">{project.date}</p>
+						<p class="project-card-desc">{project.description}</p>
+						{project.details && (
+							<ul class="project-card-details">
+								{project.details.map((detail) => (
+									<li>{detail}</li>
+								))}
+							</ul>
+						)}
+						<div class="project-card-links">
+							{project.github && (
+								<a href={project.github} target="_blank" rel="noopener" class="card-link mono">GitHub →</a>
+							)}
+							{project.live && (
+								<a href={project.live} target="_blank" rel="noopener" class="card-link mono">Live →</a>
+							)}
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+	</div>
+</Layout>
+
+<style>
+	.page-header {
+		padding: 4rem 0 3rem;
+	}
+
+	.page-header h1 {
+		margin-bottom: 0.75rem;
+	}
+
+	.page-intro {
+		font-size: 0.9375rem;
+		color: var(--text-secondary);
+	}
+
+	/* Stack Section */
+	.stack-section {
+		padding: 2rem 0 3rem;
+		border-bottom: 1px solid var(--border-subtle);
+		margin-bottom: 3rem;
+	}
+
+	.stack-title {
+		font-size: 1.25rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.stack-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.stack-category {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.category-title {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--text-tertiary);
+		margin-bottom: 0;
+	}
+
+	.stack-items {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.stack-item {
+		font-size: 0.8125rem;
+		color: var(--text-secondary);
+		background: var(--bg-tertiary);
+		padding: 0.25rem 0.5rem;
+		border: 1px solid var(--border-subtle);
+	}
+
+	/* Projects Section */
+	.projects-section {
+		padding: 2rem 0 4rem;
+	}
+
+	.projects-section-title {
+		font-size: 1.25rem;
+		margin-bottom: 2rem;
+	}
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+	}
+
+	.project-card {
+		background: var(--bg-secondary);
+		border: 1px solid var(--border-subtle);
+		border-radius: 16px;
+		padding: 1.75rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		transition: transform 0.3s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+		cursor: default;
+	}
+
+	.project-card:hover {
+		transform: translateY(-4px);
+		border-color: var(--border-medium);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.project-card:hover {
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+		}
+	}
+
+	.project-card-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 0.75rem;
+	}
+
+	.project-card-title {
+		font-size: 1.25rem;
+		font-weight: 600;
+		margin-bottom: 0;
+		line-height: 1.3;
+	}
+
+	.status-tag {
+		font-size: 0.6875rem;
+		color: var(--text-secondary);
+		background: var(--bg-tertiary);
+		border: 1px solid var(--border-subtle);
+		padding: 0.125rem 0.45rem;
+		line-height: 1.2;
+		letter-spacing: 0.02em;
+	}
+
+	.project-card-date {
+		font-size: 0.75rem;
+		color: var(--text-tertiary);
+	}
+
+	.project-card-desc {
+		font-size: 0.8125rem;
+		color: var(--text-secondary);
+		line-height: 1.5;
+		margin: 0;
+		flex-grow: 1;
+	}
+
+	.project-card-details {
+		margin: 0;
+		padding-left: 1.25rem;
+		font-size: 0.8125rem;
+		color: var(--text-secondary);
+		line-height: 1.6;
+	}
+
+	.project-card-details li {
+		margin-bottom: 0.5rem;
+	}
+
+	.project-card-details li:last-child {
+		margin-bottom: 0;
+	}
+
+	.project-card-links {
+		display: flex;
+		gap: 1rem;
+		margin-top: auto;
+	}
+
+	.card-link {
+		font-size: 0.75rem;
+		color: var(--text-secondary);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.card-link:hover {
+		color: var(--text-primary);
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.page-header {
+			padding: 3rem 0 2rem;
+		}
+
+		.stack-grid {
+			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+			gap: 1rem;
+		}
+
+		.projects-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+	}
+</style>
