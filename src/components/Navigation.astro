@@ -1,0 +1,104 @@
+---
+---
+
+<nav class="nav">
+	<div class="nav-inner container-wide">
+		<div class="nav-left">
+			<a href="/" class="nav-name">VIDHA</a>
+		</div>
+		<div class="nav-center">
+			<a href="/about">About</a>
+			<a href="/experience">Experience</a>
+			<a href="/projects">Projects</a>
+		</div>
+		<div class="nav-right">
+			<a href="#contact" class="nav-cta">Work with me →</a>
+			<button class="theme-toggle" aria-label="Toggle theme">◐</button>
+		</div>
+	</div>
+</nav>
+
+<style>
+	.nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: var(--bg-primary);
+		border-bottom: 1px solid var(--border-subtle);
+		z-index: 100;
+	}
+
+	.nav-inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 0;
+	}
+
+	.nav-left,
+	.nav-center,
+	.nav-right {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.nav-name {
+		font-weight: 600;
+		font-size: 0.875rem;
+		letter-spacing: -0.02em;
+		color: var(--text-primary);
+		text-decoration: none;
+	}
+
+	.nav-center a {
+		font-size: 0.75rem;
+		color: var(--text-secondary);
+		text-decoration: none;
+	}
+
+	.nav-center a:hover {
+		color: var(--text-primary);
+	}
+
+	.nav-cta {
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: var(--text-primary);
+		text-decoration: none;
+	}
+
+	.theme-toggle {
+		background: none;
+		border: none;
+		color: var(--text-tertiary);
+		font-size: 1.25rem;
+		cursor: pointer;
+		padding: 0.25rem;
+		transition: color 0.2s ease;
+	}
+
+	.theme-toggle:hover {
+		color: var(--text-primary);
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.nav-inner {
+			flex-direction: column;
+			gap: 0.75rem;
+			padding: 0.75rem 0;
+		}
+
+		.nav-center {
+			display: none;
+		}
+
+		.nav-left,
+		.nav-right {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+</style>
