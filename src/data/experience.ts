@@ -7,9 +7,15 @@ export interface Experience {
 
 export const experiences: Experience[] = [
 	{
+		company: "Contexta",
+		role: "Founder & CEO",
+		date: "May 2026 - Present",
+		description: "A persistent conceptual memory layer for codebases."
+	},
+	{
 		company: "CyberSafe Systems, UK",
 		role: "Trainee AI Developer",
-		date: "Jul 2026 – Aug 2026",
+		date: "Jul 2026",
 		description: "Developing and integrating features for a client-facing enterprise application, working with React, UI5, and backend APIs."
 	},
 	{
