@@ -3,6 +3,7 @@ export interface Project {
 	description: string;
 	date: string;
 	currently?: boolean;
+	featured?: boolean;
 	github?: string;
 	live?: string;
 	details?: string[];
@@ -13,6 +14,7 @@ export const projects: Project[] = [
 		title: "Contexta",
 		description: "Persistent conceptual memory layer for codebases",
 		currently: true,
+		featured: true,
 		date: "May 2026 - Present",
 		live: "https://getcontexta.vercel.app",
 		details: [
@@ -22,6 +24,7 @@ export const projects: Project[] = [
 	{
 		title: "Enterprise AI Search System",
 		description: "RAG + NL2SQL based search engine for enterprise data",
+		featured: true,
 		date: "Jun 2026",
 		details: [
 			"Built a natural language query-to-SQL pipeline using Ollama, Pydantic, fuzzy matching, and dynamic SQL generation",
@@ -31,6 +34,7 @@ export const projects: Project[] = [
 	{
 		title: "Logistics Transportation Cost Prediction",
 		description: "ML model trained on actual enterprise data for predicting logistics transportation costs",
+		featured: true,
 		date: "Jun 2026",
 		github: "https://github.com/Vidhaaaaaa/logistics-price-predictor",
 		details: [
@@ -42,6 +46,7 @@ export const projects: Project[] = [
 	{
 		title: "SnapTunnel",
 		description: "Peer-to-peer image sharing using WebRTC",
+		featured: false,
 		date: "Apr 2025",
 		github: "https://github.com/vidha/snaptunnel",
 		details: [
@@ -52,6 +57,7 @@ export const projects: Project[] = [
 	{
 		title: "TicketLedger",
 		description: "Decentralized ticketing on the Aptos blockchain",
+		featured: true,
 		date: "Nov 2024",
 		github: "https://github.com/vidha/ticketledger",
 		details: [
@@ -86,6 +92,7 @@ export const projects: Project[] = [
 	{
 		title: "Elicit'25 - Tech Fest Website",
 		description: "Official website for university's largest tech fest",
+		featured: true,
 		date: "Jul 2025 - Sept 2025",
 		live: "https://eismuj.com",
 		details: [
@@ -96,6 +103,7 @@ export const projects: Project[] = [
 	{
 		title: "Entrepreneur and Innovation Society - Official Website",
 		description: "First official website for EIS club",
+		featured: true,
 		date: "Mar 2026",
 		live: "https://eismuj.com",
 		details: [
