@@ -85,6 +85,8 @@ export const projects: Project[] = [
 		title: "ACM SIGAI MUJ - Official Website",
 		description: "Official website for ACM SIGAI club",
 		date: "Jun 2025 - Nov 2025",
+		live: "https://mujsigai.acm.org/",
+		github: "https://github.com/Vidhaaaaaa/media_sigai",
 		details: [
 			"Contributed to building the club's new edition website as part of the web development team"
 		]
@@ -94,9 +96,10 @@ export const projects: Project[] = [
 		description: "Official website for university's largest tech fest",
 		featured: true,
 		date: "Jul 2025 - Sept 2025",
-		live: "https://eismuj.com",
+		live: "https://elicit-25-nine.vercel.app/",
+		github: "https://github.com/Vidhaaaaaa/ELICIT-25",
 		details: [
-			"Built backend features and a feedback system for the university's largest tech fest website",
+			"Built backend features and a feedback system for the university's largest tech fest website catering 200+ users",
 			"Worked with the team to develop, deploy and monitor the site"
 		]
 	},
@@ -106,6 +109,7 @@ export const projects: Project[] = [
 		featured: true,
 		date: "Mar 2026",
 		live: "https://eismuj.com",
+		github: "https://github.com/Vidhaaaaaa/EISwebsite",
 		details: [
 			"Built and deployed the first official website of the club"
 		]
