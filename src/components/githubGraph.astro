@@ -29,68 +29,78 @@ function formatDate(date: string) {
     year: "numeric",
   });
 }
+
+const weekCount = data.weeks.length;
+
+const months: { label: string; index: number }[] = [];
+let lastMonth = -1;
+
+data.weeks.forEach((week, index) => {
+  const firstDay = week.contributionDays[0];
+  if (!firstDay) return;
+
+  const date = new Date(`${firstDay.date}T00:00:00`);
+  const month = date.getMonth();
+
+  if (month !== lastMonth) {
+    months.push({
+      label: date.toLocaleDateString("en-US", { month: "short" }),
+      index,
+    });
+    lastMonth = month;
+  }
+});
 ---
 
 <div class="github-activity">
   <div class="github-header">
-    <div>
-      <p class="github-total">
-        {data.totalContributions.toLocaleString()} contributions
-      </p>
-    </div>
+    <p class="github-total">
+      {data.totalContributions.toLocaleString()} contributions
+    </p>
   </div>
 
   <div class="calendar-wrapper">
     <div class="weekday-labels" aria-hidden="true">
-      <span></span>
-      <span>Mon</span>
-      <span></span>
-      <span>Wed</span>
-      <span></span>
-      <span>Fri</span>
-      <span></span>
+      {["", "Mon", "", "Wed", "", "Fri", ""].map((day) => (
+        <span>{day}</span>
+      ))}
     </div>
 
     <div class="calendar-container">
-      <div class="month-labels" aria-hidden="true">
-        {(() => {
-          const months = [];
-          let lastMonth = -1;
-          
-          data.weeks.forEach((week, index) => {
-            const firstDay = week.contributionDays[0];
-            const date = new Date(`${firstDay.date}T00:00:00`);
-            const month = date.toLocaleDateString('en-US', { month: 'short' });
-            const currentMonth = date.getMonth();
-            
-            if (currentMonth !== lastMonth) {
-              const weekWidth = 15; // 12px square + 3px gap
-              months.push(
-                <span key={month} style={`position: absolute; left: ${index * weekWidth}px`}>{month}</span>
-              );
-              lastMonth = currentMonth;
-            }
-          });
-          
-          return months;
-        })()}
-      </div>
-      <div class="calendar">
-        {data.weeks.map((week) => (
-          <div class="github-week">
-            {week.contributionDays.map((day) => {
-              const level = getLevel(day.contributionCount);
+      <div class="calendar-scroll">
+        <div
+          class="month-labels"
+          aria-hidden="true"
+          style={`--week-count: ${weekCount}`}
+        >
+          {months.map((month) => (
+            <span style={`--week-index: ${month.index}`}>
+              {month.label}
+            </span>
+          ))}
+        </div>
 
-              return (
-                <div
-                  class={`github-day github-level-${level}`}
-                  title={`${formatDate(day.date)} · ${day.contributionCount} contribution${day.contributionCount === 1 ? "" : "s"}`}
-                  aria-label={`${formatDate(day.date)}: ${day.contributionCount} contributions`}
-                ></div>
-              );
-            })}
-          </div>
-        ))}
+        <div
+          class="calendar"
+          role="group"
+          aria-label="GitHub contribution activity"
+        >
+          {data.weeks.map((week) => (
+            <div class="github-week">
+              {week.contributionDays.map((day) => {
+                const level = getLevel(day.contributionCount);
+
+                return (
+                  <div
+                    class={`github-day github-level-${level}`}
+                    title={`${formatDate(day.date)} · ${day.contributionCount} contribution${day.contributionCount === 1 ? "" : "s"}`}
+                    aria-label={`${formatDate(day.date)}: ${day.contributionCount} contributions`}
+                  ></div>
+                );
+              })}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>
@@ -110,21 +120,13 @@ function formatDate(date: string) {
   .github-activity {
     width: 100%;
     max-width: 100%;
-    margin-top: 0;
-    margin-bottom: 2rem;
+    min-width: 0;
+    margin: 0 0 2rem;
     opacity: 0.8;
   }
 
   .github-header {
     margin-bottom: 0.75rem;
-  }
-
-  .github-label {
-    margin: 0;
-    font-size: 0.625rem;
-    color: var(--text-tertiary, #606060);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
 
   .github-total {
@@ -135,39 +137,18 @@ function formatDate(date: string) {
 
   .calendar-wrapper {
     display: flex;
-    gap: 0.4rem;
-    padding-bottom: 0.3rem;
-  }
-
-  .calendar-container {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    position: relative;
-  }
-
-  .month-labels {
-    display: flex;
-    gap: 0;
-    margin-bottom: 0.25rem;
-    position: relative;
-    height: 14px;
-  }
-
-  .month-labels span {
-    font-size: 0.5625rem;
-    line-height: 14px;
-    color: var(--text-tertiary, #606060);
-    position: absolute;
-    white-space: nowrap;
+    align-items: flex-start;
+    gap: 6px;
+    width: 100%;
+    min-width: 0;
   }
 
   .weekday-labels {
-    flex: 0 0 30px;
+    flex: 0 0 25px;
     display: grid;
     grid-template-rows: repeat(7, 12px);
     gap: 3px;
-    padding-top: 1.2rem;
+    padding-top: 18px;
   }
 
   .weekday-labels span {
@@ -176,52 +157,89 @@ function formatDate(date: string) {
     color: var(--text-tertiary, #606060);
   }
 
+  /* Only this element scrolls horizontally */
+  .calendar-container {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-medium, #d5d5d5) transparent;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .calendar-scroll {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .month-labels {
+    position: relative;
+    width: 100%;
+    height: 18px;
+    margin-bottom: 2px;
+  }
+
+  .month-labels span {
+    position: absolute;
+    left: calc(var(--week-index) * 15px);
+    top: 0;
+    white-space: nowrap;
+    font-size: 0.5625rem;
+    line-height: 14px;
+    color: var(--text-tertiary, #606060);
+  }
+
   .calendar {
     display: flex;
     gap: 3px;
-    width: 100%;
+    width: max-content;
   }
 
   .github-week {
     display: flex;
+    flex: 0 0 12px;
     flex-direction: column;
     gap: 3px;
+    width: 12px;
   }
 
   .github-day {
+    display: block;
     width: 12px;
     height: 12px;
     flex: 0 0 12px;
     border-radius: 2px;
-    transition:
-      transform 120ms ease,
-      box-shadow 120ms ease;
+    transition: transform 120ms ease, box-shadow 120ms ease;
   }
 
   .github-day:hover {
-    transform: scale(1.35);
-    box-shadow: 0 0 0 2px var(--bg-primary, #0a0a0a);
+    position: relative;
+    z-index: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 0 1px var(--bg-primary, #0a0a0a);
     cursor: pointer;
   }
 
   .github-level-0 {
-    background: #E5E5E5;
+    background: #e5e5e5;
   }
 
   .github-level-1 {
-    background: #D0D0D0;
+    background: #d0d0d0;
   }
 
   .github-level-2 {
-    background: #BBBBBB;
+    background: #bbbbbb;
   }
 
   .github-level-3 {
-    background: #A6A6A6;
+    background: #a6a6a6;
   }
 
   .github-level-4 {
-    background: var(--text-primary, #0A0A0A);
+    background: var(--text-primary, #0a0a0a);
   }
 
   .github-legend {
@@ -237,49 +255,94 @@ function formatDate(date: string) {
   .legend-day {
     width: 10px;
     height: 10px;
+    flex: 0 0 10px;
     border-radius: 2px;
   }
 
   @media (prefers-color-scheme: dark) {
     .github-level-0 {
-      background: #2A2A2A;
+      background: #2a2a2a;
     }
 
     .github-level-1 {
-      background: #3A3A3A;
+      background: #3a3a3a;
     }
 
     .github-level-2 {
-      background: #4A4A4A;
+      background: #4a4a4a;
     }
 
     .github-level-3 {
-      background: #5A5A5A;
+      background: #5a5a5a;
     }
 
     .github-level-4 {
-      background: var(--text-primary, #FAFAFA);
+      background: var(--text-primary, #fafafa);
     }
   }
 
   @media (max-width: 600px) {
+    .calendar-wrapper {
+      gap: 0;
+      max-width: calc(100% - 2rem);
+      overflow: hidden;
+      margin: 0 1rem;
+    }
+
+    .calendar-container {
+      flex: 1 1 auto;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-medium, #d5d5d5) transparent;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .weekday-labels {
+      display: none;
+    }
+
+    /* Make squares larger on mobile for better visibility */
+    .github-week {
+      flex-basis: 10px;
+      width: 10px;
+      gap: 2px;
+    }
+
     .github-day {
       width: 10px;
       height: 10px;
       flex-basis: 10px;
+      border-radius: 2px;
     }
 
-    .github-week {
-      gap: 3px;
+    .month-labels {
+      height: 15px;
+    }
+
+    .month-labels span {
+      left: calc(var(--week-index) * 12px);
+      font-size: 0.5rem;
+      line-height: 12px;
     }
 
     .calendar {
-      gap: 3px;
+      gap: 2px;
     }
 
-    .weekday-labels {
-      grid-template-rows: repeat(7, 10px);
-      gap: 3px;
+    .github-legend {
+      margin-top: 0.5rem;
+      font-size: 0.5rem;
+      justify-content: center;
+    }
+
+    .legend-day {
+      width: 10px;
+      height: 10px;
+      flex-basis: 10px;
     }
   }
 </style>
