@@ -182,6 +182,12 @@ const { title = "vidha" } = Astro.props;
 		opacity: 0.1;
 	}
 
+	@media (max-width: 768px) {
+		#dither-bg {
+			opacity: 0.2;
+		}
+	}
+
 	/*
 	 * Everything belonging to the actual portfolio sits above
 	 * the animated background.
