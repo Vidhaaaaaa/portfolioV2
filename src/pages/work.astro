@@ -316,8 +316,86 @@ import Layout from '../layouts/Layout.astro';
 			padding: 3rem 0 1.5rem;
 		}
 
+		.page-header h1 {
+			font-size: 2rem;
+		}
+
 		.project-detail {
 			padding: 1.5rem 0;
+		}
+
+		.project-title {
+			font-size: 1.5rem;
+		}
+
+		.project-role {
+			font-size: 1rem;
+		}
+
+		.project-date {
+			font-size: 0.875rem;
+		}
+
+		.project-description {
+			font-size: 0.9375rem;
+			line-height: 1.7;
+		}
+
+		.see-more {
+			font-size: 0.8125rem;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.page-header {
+			padding: 2.5rem 0 1.5rem;
+		}
+
+		.page-header h1 {
+			font-size: 1.75rem;
+		}
+
+		.project-detail {
+			padding: 1.25rem 0;
+		}
+
+		.project-title {
+			font-size: 1.25rem;
+		}
+
+		.project-role {
+			font-size: 0.9375rem;
+		}
+
+		.project-date {
+			font-size: 0.8125rem;
+		}
+
+		.project-description {
+			font-size: 0.875rem;
+			line-height: 1.65;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.page-header h1 {
+			font-size: 1.5rem;
+		}
+
+		.project-title {
+			font-size: 1.125rem;
+		}
+
+		.project-role {
+			font-size: 0.875rem;
+		}
+
+		.project-description {
+			font-size: 0.8125rem;
+		}
+
+		.see-more {
+			font-size: 0.75rem;
 		}
 	}
 </style>
