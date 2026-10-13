@@ -1,0 +1,19 @@
+name: Regular GitHub Graph Update
+
+on:
+  schedule:
+    - cron: "0 0   * * *"
+
+  workflow_dispatch:
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Vercel deployment
+        env:
+          DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          curl --fail --silent --show-error \
+            -X POST "$DEPLOY_HOOK"
