@@ -4,7 +4,6 @@ import Navigation from '../components/Navigation.astro';
 import GithubGraph from "../components/githubGraph.astro";
 import { projects } from "../data/projects";
 import { experiences } from "../data/experience";
-import Analytics from '@vercel/analytics/astro'
 
 import { getGithubContributions } from "../lib/github";
 
@@ -230,7 +229,6 @@ const featuredProjects = projects.filter(p => p.featured);
 			</div>
 			<div class="footer-copy">
 				<p class="mono">© 2026 Vidha</p>
-				<Analytics/>
 			</div>
 		</div>
 	</footer>
